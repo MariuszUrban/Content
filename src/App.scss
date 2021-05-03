@@ -1,0 +1,102 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: rgb(199, 199, 196);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.App {
+  background-color: rgb(199, 199, 196);
+
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 60%;
+  max-height: 100%;
+}
+
+.nav-bar {
+  height: 15%;
+}
+
+.pending-results-bar {
+  h1 {
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+  }
+}
+
+
+
+.results-bar {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+  }
+}
+
+#form {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+#loader{
+  height: 80vh;
+  width: 100%;
+}
+
+#results {
+  width: 100%;
+  height: auto;
+}
