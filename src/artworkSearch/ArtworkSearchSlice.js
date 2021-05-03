@@ -6,7 +6,9 @@ import {
 
 export const fetchMET = createAsyncThunk(
   "artworks/MET",
+
   async (keyword, { dispatch }) => {
+    dispatch(showHideForm(true));
     return fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=${keyword}`
     )
@@ -39,6 +41,7 @@ export const fetchMET = createAsyncThunk(
                   id: objectID,
                 };
                 dispatch(saveMET(singleWork));
+                dispatch(showHideForm(false));
               }
             );
         });
@@ -50,12 +53,16 @@ export const fetchMET = createAsyncThunk(
 const artworkSearchSlice = createSlice({
   name: "artworks",
   initialState: {
+    form_hidden: false,
     keywords: [],
     results: [],
   },
   reducers: {
     saveKeywords: (state, action) => {
       state.keywords = action.payload;
+    },
+    showHideForm: (state, action) => {
+      state.form_hidden = action.payload;
     },
     saveMET: (state, action) => {
       state.results.push(action.payload);
@@ -65,5 +72,9 @@ const artworkSearchSlice = createSlice({
 });
 
 export const selectState = (state) => state.artworks;
-export const { saveKeywords, saveMET } = artworkSearchSlice.actions;
+export const {
+  saveKeywords,
+  showHideForm,
+  saveMET,
+} = artworkSearchSlice.actions;
 export default artworkSearchSlice.reducer;
