@@ -6,7 +6,6 @@ import {
 
 export const fetchMET = createAsyncThunk(
   "artworks/MET",
-
   async (keyword, { dispatch }) => {
     dispatch(showHideForm(true));
     return fetch(
@@ -20,7 +19,6 @@ export const fetchMET = createAsyncThunk(
             `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
           )
             .then((response) => {
-              console.log(response);
               return response.json();
             })
             .then(
@@ -41,12 +39,48 @@ export const fetchMET = createAsyncThunk(
                   id: objectID,
                 };
                 dispatch(saveMET(singleWork));
-                dispatch(showHideForm(false));
               }
             );
         });
       })
       .catch((err) => console.log(err));
+  }
+);
+
+export const fetchArtInstituteChicago = createAsyncThunk(
+  "artworks/ArtInstituteChicago",
+  async (keyword, { dispatch }) => {
+    return fetch(
+      `https://api.artic.edu/api/v1/artworks?/search?q=${keyword}&is_public_domain=true&limit=100&fields=id,title,image_id,artist_display,description,dimensions,medium_display,`
+    )
+      .then((response) => response.json())
+      .then((value) => {
+        console.log("🚀 ~ .then ~ value", value);
+        const arr = value.data;
+        arr.forEach(
+          ({
+            artist_display,
+            title,
+            dimensions,
+            medium_display,
+            image_id,
+            id,
+          }) => {
+            const singleWork = {
+              artist: artist_display,
+              title,
+              dimensions,
+              medium: medium_display,
+              image: `https://www.artic.edu/iiif/2/${image_id}/full/600,/0/default.jpg`,
+              id,
+            };
+            if (image_id != null) {
+              dispatch(saveArtInstituteChicago(singleWork));
+            }
+          }
+        );
+      })
+      .catch((error) => console.log(error));
   }
 );
 
@@ -67,6 +101,9 @@ const artworkSearchSlice = createSlice({
     saveMET: (state, action) => {
       state.results.push(action.payload);
     },
+    saveArtInstituteChicago: (state, action) => {
+      state.results.push(action.payload);
+    },
   },
   extraReducers: {},
 });
@@ -76,5 +113,6 @@ export const {
   saveKeywords,
   showHideForm,
   saveMET,
+  saveArtInstituteChicago,
 } = artworkSearchSlice.actions;
 export default artworkSearchSlice.reducer;

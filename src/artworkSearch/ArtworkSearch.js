@@ -8,7 +8,12 @@ import {
   Button,
 } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMET, saveKeywords, selectState } from "./ArtworkSearchSlice";
+import {
+  fetchMET,
+  fetchArtInstituteChicago,
+  saveKeywords,
+  selectState,
+} from "./ArtworkSearchSlice";
 
 export default function ArtworkSearch() {
   const state = useSelector(selectState);
@@ -24,7 +29,8 @@ export default function ArtworkSearch() {
   const handleSubmit = () => {
     if (state.keywords.length !== 0 && state.keywords.length <= 5) {
       state.keywords.forEach((word) => {
-        dispatch(fetchMET(word));
+        // dispatch(fetchMET(word));
+        dispatch(fetchArtInstituteChicago(word));
       });
     }
   };
