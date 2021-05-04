@@ -14,6 +14,7 @@ import {
   saveKeywords,
   selectState,
 } from "./ArtworkSearchSlice";
+import { fetchCooperHewitt } from "../Museums/CooperHewitt";
 
 export default function ArtworkSearch() {
   const state = useSelector(selectState);
@@ -30,7 +31,8 @@ export default function ArtworkSearch() {
     if (state.keywords.length !== 0 && state.keywords.length <= 5) {
       state.keywords.forEach((word) => {
         // dispatch(fetchMET(word));
-        dispatch(fetchArtInstituteChicago(word));
+        // dispatch(fetchArtInstituteChicago(word));
+        dispatch(fetchCooperHewitt(word));
       });
     }
   };

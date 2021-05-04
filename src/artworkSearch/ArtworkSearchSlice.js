@@ -51,13 +51,14 @@ export const fetchArtInstituteChicago = createAsyncThunk(
   "artworks/ArtInstituteChicago",
   async (keyword, { dispatch }) => {
     return fetch(
+      // to correct
       `https://api.artic.edu/api/v1/artworks?/search?q=${keyword}&is_public_domain=true&limit=100&fields=id,title,image_id,artist_display,description,dimensions,medium_display,`
     )
       .then((response) => response.json())
       .then((value) => {
         console.log("🚀 ~ .then ~ value", value);
         const arr = value.data;
-        arr.forEach(
+        arr.map(
           ({
             artist_display,
             title,
@@ -84,6 +85,8 @@ export const fetchArtInstituteChicago = createAsyncThunk(
   }
 );
 
+
+
 const artworkSearchSlice = createSlice({
   name: "artworks",
   initialState: {
@@ -104,6 +107,9 @@ const artworkSearchSlice = createSlice({
     saveArtInstituteChicago: (state, action) => {
       state.results.push(action.payload);
     },
+    saveCooperHewitt: (state, action) => {
+      state.results.push(action.payload);
+    },
   },
   extraReducers: {},
 });
@@ -114,5 +120,6 @@ export const {
   showHideForm,
   saveMET,
   saveArtInstituteChicago,
+  saveCooperHewitt,
 } = artworkSearchSlice.actions;
 export default artworkSearchSlice.reducer;
