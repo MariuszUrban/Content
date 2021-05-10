@@ -1,7 +1,5 @@
 import {
   createAsyncThunk,
-  createEntityAdapter,
-  createSlice,
 } from "@reduxjs/toolkit";
 
 import { saveCooperHewitt } from "../artworkSearch/ArtworkSearchSlice";
