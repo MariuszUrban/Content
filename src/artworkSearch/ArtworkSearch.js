@@ -8,12 +8,13 @@ import {
   Button,
 } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
+import { saveKeywords, selectState } from "./ArtworkSearchSlice";
 import {
+  fetchRijksmuseum,
   fetchMET,
+  fetchCooperHewitt,
   fetchArtInstituteChicago,
-  saveKeywords,
-  selectState,
-} from "./ArtworkSearchSlice";
+} from "../Museums/index";
 
 export default function ArtworkSearch() {
   const state = useSelector(selectState);
@@ -29,8 +30,10 @@ export default function ArtworkSearch() {
   const handleSubmit = () => {
     if (state.keywords.length !== 0 && state.keywords.length <= 5) {
       state.keywords.forEach((word) => {
-        // dispatch(fetchMET(word));
         dispatch(fetchArtInstituteChicago(word));
+        dispatch(fetchCooperHewitt(word));
+        dispatch(fetchRijksmuseum(word));
+        dispatch(fetchMET(word));
       });
     }
   };
