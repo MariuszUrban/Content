@@ -30,10 +30,10 @@ export default function ArtworkSearch() {
   const handleSubmit = () => {
     if (state.keywords.length !== 0 && state.keywords.length <= 5) {
       state.keywords.forEach((word) => {
-        dispatch(fetchArtInstituteChicago(word));
+        // dispatch(fetchArtInstituteChicago(word));
         dispatch(fetchCooperHewitt(word));
-        dispatch(fetchRijksmuseum(word));
-        dispatch(fetchMET(word));
+        // dispatch(fetchRijksmuseum(word));
+        // dispatch(fetchMET(word));
       });
     }
   };

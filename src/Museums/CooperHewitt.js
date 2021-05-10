@@ -1,6 +1,4 @@
-import {
-  createAsyncThunk,
-} from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { saveCooperHewitt } from "../artworkSearch/ArtworkSearchSlice";
 
@@ -8,13 +6,14 @@ export const fetchCooperHewitt = createAsyncThunk(
   "artworks/CooperHewitt",
   async (keyword, { dispatch }) => {
     return fetch(
-      `https://api.collection.cooperhewitt.org/rest/select=images/?method=cooperhewitt.search.collection&access_token=4cb7a6299962713e8499f9cac04862fe&query=${keyword}&page=1&per_page=100&select=id,images`
+      `https://api.collection.cooperhewitt.org/rest/select=images/?method=cooperhewitt.search.collection&access_token=4cb7a6299962713e8499f9cac04862fe&query=${keyword}&page=10&per_page=100`
     )
       .then((response) => response.json())
       .then((results) => {
+        console.log("🚀 ~ .then ~ results", results);
         const resultsArr = results.objects;
 
-        resultsArr.map(
+        resultsArr.forEach(
           ({ participants, title, dimensions, medium, images, id }) => {
             const checkParticipants = (array) => {
               if (undefined !== array && array.length) {
@@ -26,7 +25,7 @@ export const fetchCooperHewitt = createAsyncThunk(
 
             const checkImages = (array) => {
               if (undefined !== array && array.length) {
-                return images[0].b.url;
+                return images[0].z.url;
               } else {
                 return "No images found ";
               }

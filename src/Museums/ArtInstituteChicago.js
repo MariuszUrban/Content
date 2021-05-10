@@ -7,11 +7,10 @@ export const fetchArtInstituteChicago = createAsyncThunk(
   async (keyword, { dispatch }) => {
     return fetch(
       // to correct
-      `https://api.artic.edu/api/v1/artworks?/search?q=${keyword}&is_public_domain=true&limit=100&fields=id,title,image_id,artist_display,description,dimensions,medium_display,`
+      `https://api.artic.edu/api/v1/artworks?/search?q=${keyword}&limit=100`
     )
       .then((response) => response.json())
       .then((value) => {
-        console.log("🚀 ~ .then ~ value", value);
         const resultsArr = value.data;
         resultsArr.forEach(
           ({
