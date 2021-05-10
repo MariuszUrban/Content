@@ -11,6 +11,7 @@ export const fetchRijksmuseum = createAsyncThunk(
       .then((response) => response.json())
       .then((results) => {
         const resultsArr = results.artObjects;
+        console.log("🚀 ~ .then ~ resultsArr", resultsArr);
 
         resultsArr.forEach((element) => {
           const {

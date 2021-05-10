@@ -16,6 +16,7 @@ export const fetchMET = createAsyncThunk(
             `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
           )
             .then((response) => {
+              console.log("🚀 ~ .then ~ response", response);
               return response.json();
             })
             .then(
