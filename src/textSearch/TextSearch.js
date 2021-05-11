@@ -8,7 +8,7 @@ import {
   Button,
 } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
-import { saveKeywords, selectState } from "./ArtworkSearchSlice";
+import { saveKeywords, selectState } from "./TextSearchSlice";
 import {
   fetchRijksmuseum,
   fetchMET,

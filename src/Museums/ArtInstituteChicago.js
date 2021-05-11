@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { saveArtInstituteChicago } from "../artworkSearch/ArtworkSearchSlice";
+import { saveArtInstituteChicago } from "../textSearch/TextSearchSlice";
 
 export const fetchArtInstituteChicago = createAsyncThunk(
   "artworks/ArtInstituteChicago",

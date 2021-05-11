@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { saveRijksmuseum } from "../artworkSearch/ArtworkSearchSlice";
+import { saveRijksmuseum } from "../textSearch/TextSearchSlice";
 
 export const fetchRijksmuseum = createAsyncThunk(
   "artworks/Rijksmuseum",
@@ -14,13 +14,8 @@ export const fetchRijksmuseum = createAsyncThunk(
         console.log("🚀 ~ .then ~ resultsArr", resultsArr);
 
         resultsArr.forEach((element) => {
-          const {
-            hasImage,
-            id,
-            principalOrFirstMake,
-            title,
-            webImage,
-          } = element;
+          const { hasImage, id, principalOrFirstMake, title, webImage } =
+            element;
 
           if (hasImage) {
             const singleWork = {
