@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { saveMET } from "../artworkSearch/ArtworkSearchSlice";
+import { saveMET } from "../textSearch/TextSearchSlice";
 
 export const fetchMET = createAsyncThunk(
   "artworks/MET",

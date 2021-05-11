@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import artworkSearchReducer from "../artworkSearch/ArtworkSearchSlice";
+import artworkSearchReducer from "../textSearch/TextSearchSlice";
 
 export default configureStore({
   reducer: {

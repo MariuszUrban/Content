@@ -1,5 +1,5 @@
 import "./App.scss";
-import ArtworkSearch from "./artworkSearch/ArtworkSearch";
+import ArtworkSearch from "./textSearch/TextSearch";
 import "rsuite/dist/styles/rsuite-default.css";
 import { Loader } from "rsuite";
 import ArtworkCard from "./UI/ArtworkCard/ArtworkCard";
