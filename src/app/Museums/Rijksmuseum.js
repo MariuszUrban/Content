@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { saveRijksmuseum } from "../textSearch/TextSearchSlice";
+import { saveRijksmuseum } from "../Searchers/textSearch/TextSearchSlice";
 
 export const fetchRijksmuseum = createAsyncThunk(
   "artworks/Rijksmuseum",

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { reducers } from "../app/saveResults";
+import { reducers } from "../../saveResults";
 
 const textSearchSlice = createSlice({
   name: "textSearch",

@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { reducers } from "../app/saveResults";
-
+import { reducers } from "../../saveResults";
 
 const initialState = {
   selected_feelings: [],
   form_hidden: false,
   results: [],
 };
-
 
 const feelingsSearchSlice = createSlice({
   name: "feelingsSearch",

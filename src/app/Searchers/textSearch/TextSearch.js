@@ -14,7 +14,7 @@ import {
   fetchMET,
   fetchCooperHewitt,
   fetchArtInstituteChicago,
-} from "../Museums/index";
+} from "../../Museums/index";
 import "./_textSearch.scss";
 
 export default function ArtworkSearch() {
