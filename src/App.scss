@@ -53,13 +53,12 @@ img {
   h1 {
     height: 100%;
     width: 100%;
-    font-size: 20px;
+    font-size: 12px;
+    font-weight: 100;
     text-align: center;
-    color: black;
+    color: #575757;
   }
 }
-
-
 
 .results-bar {
   height: 100%;
@@ -91,7 +90,7 @@ img {
   }
 }
 
-#loader{
+#loader {
   height: 80vh;
   width: 100%;
 }

@@ -1,36 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { reducers } from "../app/saveResults";
 
-const artworkSearchSlice = createSlice({
-  name: "artworks",
+const textSearchSlice = createSlice({
+  name: "textSearch",
   initialState: {
     form_hidden: false,
     keywords: [],
     results: [],
   },
-  reducers: {
-    saveKeywords: (state, action) => {
-      state.keywords = action.payload;
-    },
-    showHideForm: (state, action) => {
-      state.form_hidden = action.payload;
-    },
-    saveMET: (state, action) => {
-      state.results.push(action.payload);
-    },
-    saveArtInstituteChicago: (state, action) => {
-      state.results.push(action.payload);
-    },
-    saveCooperHewitt: (state, action) => {
-      state.results.push(action.payload);
-    },
-    saveRijksmuseum: (state, action) => {
-      state.results.push(action.payload);
-    },
-  },
+  reducers,
   extraReducers: {},
 });
 
-export const selectState = (state) => state.artworks;
+export const selectState = (state) => state.text;
 export const {
   saveKeywords,
   showHideForm,
@@ -38,5 +20,5 @@ export const {
   saveArtInstituteChicago,
   saveCooperHewitt,
   saveRijksmuseum,
-} = artworkSearchSlice.actions;
-export default artworkSearchSlice.reducer;
+} = textSearchSlice.actions;
+export default textSearchSlice.reducer;

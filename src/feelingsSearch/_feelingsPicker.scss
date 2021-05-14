@@ -1,0 +1,30 @@
+#feelings-picker {
+  height: fit-content;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.show-flexbox,
+.rs-flex-box-grid {
+  height: 100%;
+  width: 100%;
+}
+
+.rs-checkbox-group {
+  width: 25%;
+}
+
+.rs-row {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

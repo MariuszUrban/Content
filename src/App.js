@@ -1,32 +1,19 @@
 import "./App.scss";
+import React  from "react";
 import ArtworkSearch from "./textSearch/TextSearch";
 import "rsuite/dist/styles/rsuite-default.css";
-import { Loader } from "rsuite";
 import ArtworkCard from "./UI/ArtworkCard/ArtworkCard";
-import { useSelector } from "react-redux";
+import FeelingsSearch from "./feelingsSearch/FeelingsSearch";
+import { useSelector, useDispatch } from "react-redux";
 
 function App() {
-  const state = useSelector((state) => state.artworks);
-  const { form_hidden, results } = state;
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
 
-  const showHideForm = () => {
-    if (form_hidden) {
-      return (
-        <section id="loader">
-          <div id="loaderInverseWrapper" style={{ height: 200 }}>
-            <Loader inverse center content="loading..." />
-          </div>
-        </section>
-      );
-    } else {
-      return (
-        <section id="form">
-          <ArtworkSearch />
-        </section>
-      );
-    }
-  };
+  const { form_hidden, results } = state.text;
+  const { selected_feelings } = state.feelings;
 
+  
   const showResults = () => {
     if (results.length > 0) {
       return (
@@ -46,18 +33,13 @@ function App() {
           </ul>
         </section>
       );
-    } else {
-      return (
-        <div className="pending-results-bar">
-          <h1>Expecting to see some art</h1>
-        </div>
-      );
     }
   };
 
   return (
     <div className="App">
-      {showHideForm()}
+      <ArtworkSearch />
+      <FeelingsSearch dispatch={dispatch} />
       {showResults()}
     </div>
   );

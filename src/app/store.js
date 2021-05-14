@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import artworkSearchReducer from "../textSearch/TextSearchSlice";
+import textSearchReducer from "../textSearch/TextSearchSlice";
+import feelingsSearchReducer from "../feelingsSearch/FeelingsSearchSlice";
 
 export default configureStore({
   reducer: {
-    artworks: artworkSearchReducer,
+    text: textSearchReducer,
+    feelings: feelingsSearchReducer,
   },
 });
