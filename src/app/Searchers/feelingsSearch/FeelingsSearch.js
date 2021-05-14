@@ -1,8 +1,8 @@
 import React from "react";
 import { saveFeelings } from "./FeelingsSearchSlice";
 import { FlexboxGrid, Checkbox, CheckboxGroup, Button } from "rsuite";
-import { getRandom } from "../helpers/Random";
-import { chunk } from "../helpers/Chunk";
+import { getRandom } from "../../helpers/Random";
+import { chunk } from "../../helpers/Chunk";
 import { colors } from "./utils/Colors";
 import { feelings } from "./utils/Feelings";
 import _ from "lodash";

@@ -1,9 +1,9 @@
 import "./App.scss";
 import React  from "react";
-import ArtworkSearch from "./textSearch/TextSearch";
+import ArtworkSearch from "./app/Searchers/textSearch/TextSearch";
 import "rsuite/dist/styles/rsuite-default.css";
 import ArtworkCard from "./UI/ArtworkCard/ArtworkCard";
-import FeelingsSearch from "./feelingsSearch/FeelingsSearch";
+import FeelingsSearch from "./app/Searchers/feelingsSearch/FeelingsSearch";
 import { useSelector, useDispatch } from "react-redux";
 
 function App() {
