@@ -11,7 +11,9 @@ export const fetchCooperHewitt = createAsyncThunk(
       .then((response) => response.json())
       .then((results) => {
         console.log("🚀 ~ .then ~ results", results);
+
         const resultsArr = results.objects;
+        console.log("🚀 ~ .then ~ resultsArr", resultsArr);
 
         resultsArr.forEach(
           ({ participants, title, dimensions, medium, images, id }) => {
@@ -49,7 +51,6 @@ export const fetchCooperHewitt = createAsyncThunk(
           }
         );
       })
-
       .catch((err) => console.log(err));
   }
 );
