@@ -1,10 +1,11 @@
 import "./App.scss";
-import React  from "react";
+import React from "react";
 import ArtworkSearch from "./app/Searchers/textSearch/TextSearch";
 import "rsuite/dist/styles/rsuite-default.css";
 import ArtworkCard from "./UI/ArtworkCard/ArtworkCard";
 import FeelingsSearch from "./app/Searchers/feelingsSearch/FeelingsSearch";
 import { useSelector, useDispatch } from "react-redux";
+import { StyleSearch } from "./app/Searchers/styleSearch/StyleSearch";
 
 function App() {
   const state = useSelector((state) => state);
@@ -13,7 +14,6 @@ function App() {
   const { form_hidden, results } = state.text;
   const { selected_feelings } = state.feelings;
 
-  
   const showResults = () => {
     if (results.length > 0) {
       return (
@@ -40,6 +40,7 @@ function App() {
     <div className="App">
       <ArtworkSearch />
       <FeelingsSearch dispatch={dispatch} />
+      <StyleSearch />
       {showResults()}
     </div>
   );

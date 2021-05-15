@@ -6,7 +6,7 @@ import { chunk } from "../../helpers/Chunk";
 import { colors } from "./utils/Colors";
 import { feelings } from "./utils/Feelings";
 import _ from "lodash";
-import "./_feelingsPicker.scss";
+import "./_feelingsSearch.scss";
 
 export const FeelingsSearchDry = ({ dispatch }) => {
   let combinedFeelings = [];
@@ -27,7 +27,7 @@ export const FeelingsSearchDry = ({ dispatch }) => {
   };
 
   return (
-    <section id="feelings-picker">
+    <section id="feelings-search">
       <div className="show-flexbox">
         <FlexboxGrid justify="space-around">
           {chunks.map((arr, index = 0) => {
