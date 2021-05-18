@@ -11,7 +11,7 @@ function App() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const { form_hidden, results } = state.text;
+  const { results } = state.text;
   const { selected_feelings } = state.feelings;
 
   const showResults = () => {
@@ -39,7 +39,10 @@ function App() {
   return (
     <div className="App">
       <ArtworkSearch />
-      <FeelingsSearch dispatch={dispatch} />
+      <FeelingsSearch
+        dispatch={dispatch}
+        selected_feelings={selected_feelings}
+      />
       <StyleSearch />
       {showResults()}
     </div>
