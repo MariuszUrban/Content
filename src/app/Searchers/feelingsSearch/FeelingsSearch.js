@@ -1,43 +1,105 @@
 import React from "react";
-import { saveFeelings } from "./FeelingsSearchSlice";
-import { FlexboxGrid, Checkbox, CheckboxGroup, Button } from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  saveFeelingsToArray,
+  removeFeelingsFromArray,
+  updateCheckedItems,
+  removeCheckedItems,
+  selectState,
+} from "./FeelingsSearchSlice";
+import {
+  FlexboxGrid,
+  Checkbox,
+  CheckboxGroup,
+  Button,
+  ButtonGroup,
+} from "rsuite";
 import { getRandom } from "../../helpers/Random";
 import { chunk } from "../../helpers/Chunk";
 import { colors } from "./utils/Colors";
 import { feelings } from "./utils/Feelings";
-import _ from "lodash";
+import {
+  fetchRijksmuseum,
+  fetchMET,
+  fetchCooperHewitt,
+  fetchArtInstituteChicago,
+} from "../../Museums/index";
+import _, { forEach } from "lodash";
 import "./_feelingsSearch.scss";
 
-export const FeelingsSearchDry = ({ dispatch }) => {
-  let combinedFeelings = [];
+let combinedFeelings = [];
 
-  feelings.forEach((feeling) => {
-    combinedFeelings.push(_.lowerCase(feeling));
-  });
-
-  for (const [_, value] of Object.entries(colors)) {
-    combinedFeelings.push(...value);
-  }
-
-  const randomFeelings = getRandom(combinedFeelings, 24);
-  const chunks = chunk(randomFeelings, 6);
-
-  const handleCheck = (e) => {
-    dispatch(saveFeelings(e));
+Object.values(colors).forEach((color) => combinedFeelings.push(...color));
+feelings.forEach((el) => combinedFeelings.push(_.toLower(el)));
+const random = getRandom(combinedFeelings, 16);
+const checkboxGroup = random.map((element) => {
+  return {
+    name: element,
+    key: element,
+    label: element,
   };
+});
+
+const chunked = chunk(checkboxGroup, 4);
+
+export const FeelingsSearch = () => {
+  const state = useSelector(selectState);
+  const { selected_feelings, checked_items } = state;
+  console.log("🚀 ~ FeelingsSearch ~ selected_feelings", selected_feelings);
+
+  const dispatch = useDispatch();
+
+  const handleChange = (e, formKey) => {
+    console.log("🚀 ~ handleChange ~ formKey", formKey);
+    const input = document.getElementsByName(e);
+    const { name, checked } = input[0];
+    const updatedCheckedItems = { ...checked_items, [name]: checked };
+
+    if (formKey && !selected_feelings.includes(name)) {
+      dispatch(saveFeelingsToArray(name));
+      dispatch(updateCheckedItems(updatedCheckedItems));
+    }
+    if (!formKey) {
+      dispatch(removeFeelingsFromArray(name));
+      dispatch(removeCheckedItems(name));
+    }
+  };
+
+  const handleClick = () => {
+    if (selected_feelings.length !== 0 && selected_feelings.length <= 5) {
+      selected_feelings.forEach((word) => {
+        dispatch(fetchArtInstituteChicago(word));
+        dispatch(fetchCooperHewitt(word));
+        dispatch(fetchRijksmuseum(word));
+        dispatch(fetchMET(word));
+      });
+    }
+  };
+
+  const checkedValues = { ...checked_items };
+  const checkedCount = Object.values(checkedValues).filter(
+    (value) => value
+  ).length;
 
   return (
     <section id="feelings-search">
       <div className="show-flexbox">
         <FlexboxGrid justify="space-around">
-          {chunks.map((arr, index = 0) => {
+          {chunked.map((row, index) => {
             return (
-              <CheckboxGroup name={`group-${index}`}>
-                {arr.map((el) => {
+              <CheckboxGroup>
+                {row.map(({ key, name }, index) => {
                   return (
                     <FlexboxGrid.Item colspan={8}>
-                      <Checkbox value={el} onChange={handleCheck}>
-                        {el}
+                      <Checkbox
+                        label={key}
+                        key={key}
+                        name={name}
+                        value={name}
+                        disabled={!checkedValues[name] && checkedCount >= 5}
+                        onChange={handleChange}
+                      >
+                        {name}
                       </Checkbox>
                     </FlexboxGrid.Item>
                   );
@@ -47,9 +109,16 @@ export const FeelingsSearchDry = ({ dispatch }) => {
           })}
         </FlexboxGrid>
       </div>
-      <Button>Check for artworks</Button>
+      <ButtonGroup>
+        <Button onClick={handleClick} disabled={checkedCount <= 0}>
+          Check for artworks
+        </Button>
+        <Button onClick={handleClick} disabled={checkedCount <= 0}>
+          Clear
+        </Button>
+      </ButtonGroup>
     </section>
   );
 };
-const FeelingsSearch = React.memo(FeelingsSearchDry);
-export default FeelingsSearch;
+
+export default React.memo(FeelingsSearch);
