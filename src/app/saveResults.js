@@ -20,6 +20,10 @@ export const reducers = {
     delete state.checked_items[payload];
     state.count = Object.values(payload).filter((value) => value).length;
   },
+  saveStylesToArray: (state, { payload }) => {
+    console.log("🚀 ~ payload", payload);
+    state.selected_styles = payload;
+  },
   showHideForm: (state, { payload }) => {
     state.form_hidden = payload;
   },

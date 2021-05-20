@@ -24,7 +24,7 @@ import {
   fetchCooperHewitt,
   fetchArtInstituteChicago,
 } from "../../Museums/index";
-import _, { forEach } from "lodash";
+import _ from "lodash";
 import "./_feelingsSearch.scss";
 
 let combinedFeelings = [];
@@ -45,12 +45,10 @@ const chunked = chunk(checkboxGroup, 4);
 export const FeelingsSearch = () => {
   const state = useSelector(selectState);
   const { selected_feelings, checked_items } = state;
-  console.log("🚀 ~ FeelingsSearch ~ selected_feelings", selected_feelings);
 
   const dispatch = useDispatch();
 
   const handleChange = (e, formKey) => {
-    console.log("🚀 ~ handleChange ~ formKey", formKey);
     const input = document.getElementsByName(e);
     const { name, checked } = input[0];
     const updatedCheckedItems = { ...checked_items, [name]: checked };
@@ -93,7 +91,7 @@ export const FeelingsSearch = () => {
                     <FlexboxGrid.Item colspan={8}>
                       <Checkbox
                         label={key}
-                        key={key}
+                        key={index}
                         name={name}
                         value={name}
                         disabled={!checkedValues[name] && checkedCount >= 5}

@@ -537,11 +537,6 @@ export const styles = [
   {
     label: "Objective abstraction",
     value: "Objective abstraction",
-    role: "N",
-  },
-  {
-    label: "Objective abstraction",
-    value: "Objective abstraction",
     role: "O",
   },
   {
