@@ -5,6 +5,8 @@ import {
   removeFeelingsFromArray,
   updateCheckedItems,
   removeCheckedItems,
+  clearCheckedFeelings,
+  clearCheckedItems,
   selectState,
 } from "./FeelingsSearchSlice";
 import {
@@ -45,6 +47,10 @@ const chunked = chunk(checkboxGroup, 4);
 export const FeelingsSearch = () => {
   const state = useSelector(selectState);
   const { selected_feelings, checked_items } = state;
+  const checkedValues = { ...checked_items };
+  const checkedCount = Object.values(checkedValues).filter(
+    (value) => value
+  ).length;
 
   const dispatch = useDispatch();
 
@@ -74,10 +80,23 @@ export const FeelingsSearch = () => {
     }
   };
 
-  const checkedValues = { ...checked_items };
-  const checkedCount = Object.values(checkedValues).filter(
-    (value) => value
-  ).length;
+  const handleClear = () => {
+    const checkedDIVs = document.querySelectorAll("div.rs-checkbox-checked");
+
+    for (let singleDiv of checkedDIVs) {
+      console.log("🚀 ~ handleClear ~ singleDiv", singleDiv);
+      singleDiv.classList.remove("rs-checkbox-checked");
+    }
+
+    selected_feelings.forEach((name) => {
+      document.getElementsByName(name)[0].checked = false;
+      console.log(document.getElementsByName(name)[0].checked);
+    });
+    console.log("🚀 ~ handleClear ~ checkedDIVs", checkedDIVs);
+
+    dispatch(clearCheckedFeelings());
+    dispatch(clearCheckedItems({}));
+  };
 
   return (
     <section id="feelings-search">
@@ -90,6 +109,7 @@ export const FeelingsSearch = () => {
                   return (
                     <FlexboxGrid.Item colspan={8}>
                       <Checkbox
+                        id={name}
                         label={key}
                         key={index}
                         name={name}
@@ -111,7 +131,7 @@ export const FeelingsSearch = () => {
         <Button onClick={handleClick} disabled={checkedCount <= 0}>
           Check for artworks
         </Button>
-        <Button onClick={handleClick} disabled={checkedCount <= 0}>
+        <Button onClick={handleClear} disabled={checkedCount <= 0}>
           Clear
         </Button>
       </ButtonGroup>
