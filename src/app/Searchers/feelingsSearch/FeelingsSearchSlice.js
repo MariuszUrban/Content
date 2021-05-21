@@ -21,6 +21,8 @@ export const {
   removeFeelingsFromArray,
   updateCheckedItems,
   removeCheckedItems,
+  clearCheckedFeelings,
+  clearCheckedItems,
   showHideForm,
   saveMET,
   saveArtInstituteChicago,

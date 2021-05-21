@@ -1,7 +1,13 @@
 import React from "react";
-import { TagPicker } from "rsuite";
+import { ButtonGroup, Button, TagPicker } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { saveStylesToArray, selectState } from "./StyleSearchSlice";
+import {
+  fetchRijksmuseum,
+  fetchMET,
+  fetchCooperHewitt,
+  fetchArtInstituteChicago,
+} from "../../Museums/index";
 import { styles } from "./utils/Styles";
 import "./_styleSearch.scss";
 export const StyleSearch = () => {
@@ -11,6 +17,17 @@ export const StyleSearch = () => {
 
   const handleChange = (e) => {
     dispatch(saveStylesToArray(e));
+  };
+
+  const handleSearch = () => {
+    if (selected_styles.length !== 0 && selected_styles.length <= 5) {
+      selected_styles.forEach((word) => {
+        dispatch(fetchArtInstituteChicago(word));
+        dispatch(fetchCooperHewitt(word));
+        dispatch(fetchRijksmuseum(word));
+        dispatch(fetchMET(word));
+      });
+    }
   };
 
   const filterStyles = () => {
@@ -58,6 +75,11 @@ export const StyleSearch = () => {
           );
         }}
       />
+      <ButtonGroup>
+        <Button onClick={handleSearch} disabled={checkedCount <= 0}>
+          Search
+        </Button>
+      </ButtonGroup>
     </section>
   );
 };
