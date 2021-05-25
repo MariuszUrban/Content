@@ -1,12 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { reducers } from "../../saveResults";
 
 const initialState = {
   selected_feelings: [],
   checked_items: {},
   count: 0,
   form_hidden: false,
-  results: [],
+};
+
+const reducers = {
+  saveFeelingsToArray: (state, { payload }) => {
+    state.selected_feelings.push(payload);
+  },
+  removeFeelingsFromArray: (state, { payload }) => {
+    for (let i = 0; i < state.selected_feelings.length; i++) {
+      if (state.selected_feelings[i] === payload) {
+        state.selected_feelings.splice(i, 1);
+      }
+    }
+  },
+  updateCheckedItems: (state, { payload }) => {
+    state.checked_items = Object.assign({}, payload);
+    state.count = Object.values(payload).filter((value) => value).length;
+  },
+  removeCheckedItems: (state, { payload }) => {
+    delete state.checked_items[payload];
+    state.count = Object.values(payload).filter((value) => value).length;
+  },
 };
 
 const feelingsSearchSlice = createSlice({
@@ -23,10 +42,5 @@ export const {
   removeCheckedItems,
   clearCheckedFeelings,
   clearCheckedItems,
-  showHideForm,
-  saveMET,
-  saveArtInstituteChicago,
-  saveCooperHewitt,
-  saveRijksmuseum,
 } = feelingsSearchSlice.actions;
 export default feelingsSearchSlice.reducer;
