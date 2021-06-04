@@ -1,19 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 import { saveCooperHewitt } from "../Results/ResultsSlice";
 
 export const fetchCooperHewitt = createAsyncThunk(
-  "artworks/CooperHewitt",
+  "artworksFrom/CooperHewitt",
   async (keyword, { dispatch }) => {
     return fetch(
       `https://api.collection.cooperhewitt.org/rest/select=images/?method=cooperhewitt.search.collection&access_token=4cb7a6299962713e8499f9cac04862fe&query=${keyword}&page=10&per_page=100`
     )
       .then((response) => response.json())
       .then((results) => {
-        console.log("🚀 ~ .then ~ results", results);
-
         const resultsArr = results.objects;
-        console.log("🚀 ~ .then ~ resultsArr", resultsArr);
 
         resultsArr.forEach(
           ({ participants, title, dimensions, medium, images, id }) => {
@@ -40,6 +36,7 @@ export const fetchCooperHewitt = createAsyncThunk(
               medium,
               image: checkImages(images),
               id,
+              keyword,
             };
 
             if (

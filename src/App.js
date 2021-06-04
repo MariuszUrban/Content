@@ -6,6 +6,7 @@ import FeelingsSearch from "./app/Searchers/feelingsSearch/FeelingsSearch";
 import { useSelector, useDispatch } from "react-redux";
 import { StyleSearch } from "./app/Searchers/styleSearch/StyleSearch";
 import { Results } from "./app/Results/Results";
+import ResultCard from "./UI/ResultCard/ResultCard";
 
 function App() {
   const state = useSelector((state) => state);

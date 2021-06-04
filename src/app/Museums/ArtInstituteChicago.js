@@ -1,12 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 import { saveArtInstituteChicago } from "../Results/ResultsSlice";
 
 export const fetchArtInstituteChicago = createAsyncThunk(
-  "artworks/ArtInstituteChicago",
-  async (keyword, { dispatch }) => {
+  "artworksFrom/ArtInstituteChicago",
+  async (keyword, thunkAPI) => {
     return fetch(
-      // to correct
       `https://api.artic.edu/api/v1/artworks?/search?q=${keyword}&limit=100`
     )
       .then((response) => response.json())
@@ -28,9 +26,10 @@ export const fetchArtInstituteChicago = createAsyncThunk(
               medium: medium_display,
               image: `https://www.artic.edu/iiif/2/${image_id}/full/600,/0/default.jpg`,
               id,
+              keyword,
             };
             if (image_id != null) {
-              dispatch(saveArtInstituteChicago(singleWork));
+              thunkAPI.dispatch(saveArtInstituteChicago(singleWork));
             }
           }
         );

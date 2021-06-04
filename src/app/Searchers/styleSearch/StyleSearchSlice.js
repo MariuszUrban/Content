@@ -10,14 +10,8 @@ const reducers = {
   saveStylesToArray: (state, { payload }) => {
     state.selected_styles = payload;
   },
-  clearCheckedFeelings: ({ selected_feelings }, { payload }) => {
-    selected_feelings.splice(0, selected_feelings.length);
-  },
-  clearCheckedItems: ({ checked_items }, { payload }) => {
-    checked_items = Object.keys(checked_items).forEach(function (key) {
-      delete checked_items[key];
-    });
-  },
+
+
 };
 
 const styleSearchSlice = createSlice({

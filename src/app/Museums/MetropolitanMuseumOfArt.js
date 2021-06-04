@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { saveMET } from "../Results/ResultsSlice";
 
 export const fetchMET = createAsyncThunk(
-  "artworks/MET",
+  "artworksFrom/MetropolitanMuseumOfArt",
   async (keyword, { dispatch }) => {
     return fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&q=${keyword}`
@@ -11,7 +11,7 @@ export const fetchMET = createAsyncThunk(
       .then((response) => response.json())
       .then((objects) => {
         let ids = objects.objectIDs;
-        ids.map(async (id) => {
+        ids.forEach(async (id) => {
           await fetch(
             `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
           )
@@ -34,6 +34,7 @@ export const fetchMET = createAsyncThunk(
                   medium: medium,
                   image: primaryImageSmall,
                   id: objectID,
+                  keyword,
                 };
                 dispatch(saveMET(singleWork));
               }
