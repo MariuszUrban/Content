@@ -9,6 +9,7 @@ import {
   clearCheckedItems,
   selectState,
 } from "./FeelingsSearchSlice";
+import { createArrayForKeyword } from "../../Results/ResultsSlice";
 import {
   FlexboxGrid,
   Checkbox,
@@ -72,6 +73,7 @@ export const FeelingsSearch = () => {
   const handleClick = () => {
     if (selected_feelings.length !== 0 && selected_feelings.length <= 5) {
       selected_feelings.forEach((word) => {
+        dispatch(createArrayForKeyword(word));
         dispatch(fetchArtInstituteChicago(word));
         dispatch(fetchCooperHewitt(word));
         dispatch(fetchRijksmuseum(word));
@@ -84,15 +86,12 @@ export const FeelingsSearch = () => {
     const checkedDIVs = document.querySelectorAll("div.rs-checkbox-checked");
 
     for (let singleDiv of checkedDIVs) {
-      console.log("🚀 ~ handleClear ~ singleDiv", singleDiv);
       singleDiv.classList.remove("rs-checkbox-checked");
     }
 
     selected_feelings.forEach((name) => {
       document.getElementsByName(name)[0].checked = false;
-      console.log(document.getElementsByName(name)[0].checked);
     });
-    console.log("🚀 ~ handleClear ~ checkedDIVs", checkedDIVs);
 
     dispatch(clearCheckedFeelings());
     dispatch(clearCheckedItems({}));

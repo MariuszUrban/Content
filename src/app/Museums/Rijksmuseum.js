@@ -1,9 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 import { saveRijksmuseum } from "../Results/ResultsSlice";
 
 export const fetchRijksmuseum = createAsyncThunk(
-  "artworks/Rijksmuseum",
+  "artworksFrom/Rijksmuseum",
   async (keyword, { dispatch }) => {
     return fetch(
       `https://www.rijksmuseum.nl/api/nl/collection?key=X5STnRUC&ps=100&q=${keyword}`
@@ -11,7 +10,6 @@ export const fetchRijksmuseum = createAsyncThunk(
       .then((response) => response.json())
       .then((results) => {
         const resultsArr = results.artObjects;
-        console.log("🚀 ~ .then ~ resultsArr", resultsArr);
 
         resultsArr.forEach((element) => {
           const { hasImage, id, principalOrFirstMake, title, webImage } =
@@ -25,6 +23,7 @@ export const fetchRijksmuseum = createAsyncThunk(
               medium: "No medium provided",
               image: webImage.url,
               id,
+              keyword
             };
 
             dispatch(saveRijksmuseum(singleWork));

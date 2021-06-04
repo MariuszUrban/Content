@@ -18,6 +18,14 @@ const reducers = {
       }
     }
   },
+  clearCheckedFeelings: ({ selected_feelings }, { payload }) => {
+    selected_feelings.splice(0, selected_feelings.length);
+  },
+  clearCheckedItems: ({ checked_items }, { payload }) => {
+    checked_items = Object.keys(checked_items).forEach(function (key) {
+      delete checked_items[key];
+    });
+  },
   updateCheckedItems: (state, { payload }) => {
     state.checked_items = Object.assign({}, payload);
     state.count = Object.values(payload).filter((value) => value).length;
