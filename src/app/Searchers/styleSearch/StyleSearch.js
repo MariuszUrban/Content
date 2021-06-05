@@ -2,6 +2,8 @@ import React from "react";
 import { ButtonGroup, Button, TagPicker } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { saveStylesToArray, selectState } from "./StyleSearchSlice";
+import { createArrayForKeyword } from "../../Results/ResultsSlice";
+
 import {
   fetchRijksmuseum,
   fetchMET,
@@ -22,6 +24,7 @@ export const StyleSearch = () => {
   const handleSearch = () => {
     if (selected_styles.length !== 0 && selected_styles.length <= 5) {
       selected_styles.forEach((word) => {
+        dispatch(createArrayForKeyword(word));
         dispatch(fetchArtInstituteChicago(word));
         dispatch(fetchCooperHewitt(word));
         dispatch(fetchRijksmuseum(word));

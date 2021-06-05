@@ -12,6 +12,8 @@ import {
   Row,
   Grid,
 } from "rsuite";
+import Typography from "@material-ui/core/Typography";
+
 import "./_artworkModal.scss";
 
 export const ArtworkModal = ({
@@ -23,9 +25,6 @@ export const ArtworkModal = ({
   medium,
   dimensions,
 }) => {
-
-
-
   return (
     <Modal full show={isModalOpen} onHide={toggleOpenClose}>
       <Modal.Header></Modal.Header>
@@ -38,10 +37,18 @@ export const ArtworkModal = ({
             <Modal.Body>
               <Container>
                 <Content className="about-art-work">
-                  <Header>{title}</Header>
-                  <h1>{artist}</h1>
-                  <p>{medium}</p>
-                  <p>{dimensions}</p>
+                  <Typography align="left" variant="h5">
+                    {title}
+                  </Typography>
+                  <Typography align="left" variant="h6">
+                    {artist}
+                  </Typography>
+                  <Typography align="left" variant="caption">
+                    {medium}
+                  </Typography>
+                  <Typography align="left" variant="caption">
+                    {dimensions}
+                  </Typography>
                 </Content>
                 <Content>
                   <ButtonGroup>

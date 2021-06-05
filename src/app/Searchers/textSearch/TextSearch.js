@@ -9,6 +9,7 @@ import {
 } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { saveKeywords, selectState } from "./TextSearchSlice";
+import { createArrayForKeyword } from "../../Results/ResultsSlice";
 import {
   fetchRijksmuseum,
   fetchMET,
@@ -31,6 +32,7 @@ export default function ArtworkSearch() {
   const handleSubmit = () => {
     if (state.keywords.length !== 0 && state.keywords.length <= 5) {
       state.keywords.forEach((word) => {
+        dispatch(createArrayForKeyword(word));
         dispatch(fetchArtInstituteChicago(word));
         dispatch(fetchCooperHewitt(word));
         dispatch(fetchRijksmuseum(word));

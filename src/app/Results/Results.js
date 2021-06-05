@@ -4,7 +4,7 @@ import ResultCard from "../../UI/ResultCard/ResultCard.jsx";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector } from "react-redux";
 import { selectState } from "./ResultsSlice";
-import { Grid, Row, Col, FlexboxGrid } from "rsuite";
+import { FlexboxGrid } from "rsuite";
 import "./_results.scss";
 import _ from "lodash";
 
@@ -32,7 +32,6 @@ export const Results = () => {
   }, [availableArtworks]);
 
   const fetchMoreData = () => {
-    console.log("WIELKI CHUJ URBANA");
     let newLoad = getRandom(artworksLeftToRender, 24);
     let diff = _.difference(artworksLeftToRender, newLoad);
     setArtworksToRender(artworksToRender.concat(newLoad));
