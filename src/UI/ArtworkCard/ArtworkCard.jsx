@@ -10,6 +10,8 @@ import Button from "@material-ui/core/Button";
 // import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Typography from "@material-ui/core/Typography";
 import "./_artworkCard.scss";
+import { AddToFavorites } from "../AddToFavorites/AddToFavorites";
+import { Share } from "../Share/Share";
 
 const useStyles = makeStyles({
   root: {
@@ -23,14 +25,22 @@ const useStyles = makeStyles({
     height: "90%",
   },
   media: {
-    height: "80%",
+    height: "85%",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
+  info: {
+    height: "15%",
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
   title: {
-    fontSize: 14,
+    fontSize: 12,
     fontStyle: "italic",
+  },
+  description: {
+    fontSize: 10,
   },
   action: {
     height: "100%",
@@ -48,26 +58,33 @@ export const ArtworkCard = ({ image, artist, title, toggleOpenClose }) => {
     <Card className={classes.root} variant="outlined" onClick={toggleOpenClose}>
       <CardActionArea className={classes.content}>
         <CardMedia className={classes.media} image={image} title={title} />
-        <CardContent>
+        <CardContent className={classes.info}>
           <Typography
             className={classes.title}
             gutterBottom
             variant="h2"
             component="h2"
+            maxLength="30"
           >
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography
+            className={classes.description}
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            maxLength="70"
+          >
             {artist}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.actionButtons}>
-        <Button size="small" color="primary">
-          Share
+        <Button fontSize="small" color="primary">
+          <AddToFavorites size="small" color="rgb(150 150 148)" />
         </Button>
         <Button size="small" color="primary">
-          Learn More
+          <Share size="small" color="rgb(150 150 148)" />
         </Button>
       </CardActions>
     </Card>

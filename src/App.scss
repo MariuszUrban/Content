@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;1,300;1,400&display=swap");
-$font-main: "Source Sans Pro", sans-serif;
+@import "./sass/index.scss";
 
 html {
   box-sizing: border-box;
   font-size: 16px;
-  background-color: rgb(199, 199, 196);
+  background-color: $background;
 }
 
 *,
@@ -29,9 +28,8 @@ ul {
 }
 
 .App {
-  background-color: rgb(199, 199, 196);
-
-  height: 100%;
+  background-color: $background;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,12 +41,16 @@ ul {
   list-style: none;
 }
 
-img {
-  max-height: 100%;
-}
-
 .nav-bar {
   height: 15%;
+}
+
+.content-container {
+  height: calc(100vh - 300px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pending-results-bar {
