@@ -1,0 +1,19 @@
+@import "../../App.scss";
+
+.random-word-container {
+  min-width: 320px;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word-wrap {
+  padding: 15px;
+  span {
+    font-family: $main-font;
+    color: $dark-grey-blue;
+    letter-spacing: 3px;
+    @include font-size(2);
+  }
+}

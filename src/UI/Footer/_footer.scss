@@ -1,0 +1,36 @@
+@import "../../App.scss";
+.footer-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  padding: 50px;
+  padding-bottom: 125px;
+}
+
+.about-author {
+  @include font-size(0.8);
+  color: $dark-grey-blue;
+  letter-spacing: 3px;
+  padding: 15px;
+}
+
+.social-buttons {
+  display: flex;
+  padding-right: 50px;
+}
+
+.details-buttons {
+  display: flex;
+}
+
+.icon-wrapper {
+  padding: 15px;
+  opacity: 60%;
+  transition: 0.5s ease-in;
+  color: #204361;
+}
+
+.icon-wrapper:hover {
+  opacity: 100%;
+}

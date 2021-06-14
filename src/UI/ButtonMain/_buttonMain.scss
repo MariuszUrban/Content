@@ -1,0 +1,25 @@
+@import "../../App.scss";
+
+.main-btn-container {
+  width: fit-content;
+  button {
+    width: 172px;
+    height: 32px;
+    border: 1px solid $dark-grey-blue;
+    border-radius: 25px;
+    background-color: $background;
+    transition: ease-in 0.32s;
+    letter-spacing: 2px;
+    @include font-size(0.7);
+    text-transform: uppercase;
+  }
+  button:hover {
+    border: 1px solid $dark-grey-blue;
+    border-radius: 25px;
+    background-color: $dark-grey-blue;
+    color: #fff;
+  }
+  span {
+    padding: 25px;
+  }
+}
