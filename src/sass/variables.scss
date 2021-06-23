@@ -1,20 +1,16 @@
 @import "./mixins.scss";
 
 //FONTS
-
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
-
-$main-font: "Comfortaa", cursive;
-
 @font-face {
   font-family: "Blippo";
   src: url("./fonts/Blippo-Light-SF-Regular.woff") format("woff");
 }
 
+$main-font: "Comfortaa";
 $logo-font: "Blippo";
 
 //BASIC COLORS
-
 $background: #cdd8df;
 $vivid-blue: #74b1d8;
 $dusty-blue: #74b1d8;
@@ -22,13 +18,20 @@ $grey-blue: #316694;
 $prussian-blue: #2e539e;
 $dark-grey-blue: #204361;
 $is-active: #f89b1b;
-// FONT SIZES
+$is-blocked: #be3535;;
+$is-ready: #186F2C;
 
-$body: 16;
-$input: 16;
-$text-small: 12;
-$text-medium: 14;
-$text-big: 16;
-$H1: 48;
-$H2: 36;
-$H3: 20;
+// FONT SIZES
+$input: 0.625;
+$text-small: 0.75;
+$text-medium: 0.875;
+$text-large: 1;
+$text-big: 1.75;
+$text-xl: 6;
+$H1: 3;
+$H2: 2.25;
+$H3: 1.25;
+
+//PADDING
+$container: 50px;
+$item: 15px;

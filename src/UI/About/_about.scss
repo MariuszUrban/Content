@@ -1,0 +1,109 @@
+@import "../../App.scss";
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.about-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-categories-list {
+  width: 20%;
+}
+
+.about-categories-desc {
+  width: 80%;
+  height: 60%;
+  padding: 40px;
+  padding-top: 70px;
+}
+
+.desc {
+  width: inherit;
+  line-height: 30px;
+  font-family: $main-font;
+  @include font-size($text-medium);
+  color: $dark-grey-blue;
+  opacity: 80%;
+  text-align: justify;
+}
+
+.resources-wrapper {
+  overflow: scroll;
+  width: 100%;
+  position: relative;
+  height: 100%;
+  @include scrollbars(0.5rem, $dark-grey-blue, $background);
+}
+
+.resources {
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+}
+
+.list-element {
+  padding: 15px;
+  text-align: right;
+  @include font-size($H3);
+  font-family: $logo-font;
+  color: $dark-grey-blue;
+  transition: 0.5s ease-in-out;
+}
+
+.list-element:hover,
+.list-element:active {
+  letter-spacing: 3px;
+  text-decoration: underline;
+}
+
+.functionality-wrapper,
+.updates-wrapper {
+  width: 100%;
+  height: 100%;
+  font-family: $main-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.updates-wrapper {
+  overflow: scroll;
+  width: 100%;
+  position: relative;
+  height: 100%;
+  @include scrollbars(0.5rem, $dark-grey-blue, $background);
+}
+.updates {
+  height: 100%;
+}
+.functionality-list,
+.updates-list {
+  list-style: disc;
+  padding-left: 55px;
+  width: fit-content;
+}
+
+.updates-list {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.about-back-to-main {
+  a {
+    color: $dark-grey-blue;
+    text-decoration: none;
+  }
+}

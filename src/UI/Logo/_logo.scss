@@ -1,11 +1,12 @@
 @import "../../sass/index.scss";
 
 .logo-container {
+  height: fit-content;
   a {
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
   }
   a:hover {
     text-decoration: none;

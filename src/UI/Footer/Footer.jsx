@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Icon } from "rsuite";
 import "./_footer.scss";
 
 const Footer = () => {
   const [isInfoShown, toggleInfo] = useState(false);
-  console.log("🚀 ~ Footer ~ isInfoShown", isInfoShown);
 
   const handleOpenCloseInfo = () => {
     !isInfoShown ? toggleInfo(true) : toggleInfo(false);

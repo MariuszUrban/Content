@@ -1,0 +1,42 @@
+@import "../../App.scss";
+
+.choose-theme-container {
+  padding: 50px;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.theme-word-wrapper {
+  height: 33.33%;
+  position: relative;
+}
+
+.theme-word {
+  @include font-size($text-xl);
+  font-family: $logo-font;
+  color: $dark-grey-blue;
+  opacity: 70%;
+  position: absolute;
+  transition: 3s cubic-bezier(0.49, -0.17, 0, 1.04);
+}
+
+.choose {
+  top: 0%;
+  left: 0%;
+}
+
+.choose-postion {
+  top: 0%;
+  left: 0%;
+}
+
+.random {
+  top: 0%;
+  left: 0%;
+}
+
+.theme {
+  top: 0%;
+  left: 0%;
+}
