@@ -1,0 +1,41 @@
+@import "../../App.scss";
+
+.choose-theme-buttons-container {
+  position: absolute;
+  padding: 50px;
+  height: 525px;
+  width: 750px;
+}
+
+.theme-btn-wrapper {
+  padding: 15px;
+  position: absolute;
+  z-index: 5;
+}
+
+.try-out-btn {
+  button {
+    width: fit-content;
+    padding: 10px;
+    height: auto;
+    transition: ease-in-out 0.7s;
+  }
+  button:disabled {
+    border: 2px solid;
+    color: #fff;
+  }
+
+  span {
+    padding: 5px;
+    width: 100%;
+    @include font-size($text-large);
+    text-transform: initial;
+  }
+}
+
+.active_btn {
+  button {
+    color: aliceblue;
+    background-color: $dark-grey-blue;
+  }
+}

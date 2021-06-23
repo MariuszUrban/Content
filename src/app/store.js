@@ -3,6 +3,7 @@ import textSearchReducer from "./Searchers/textSearch/TextSearchSlice";
 import feelingsSearchReducer from "./Searchers/feelingsSearch/FeelingsSearchSlice";
 import styleSearchReducer from "./Searchers/styleSearch/StyleSearchSlice";
 import resultsSlice from "./Results/ResultsSlice";
+import tryItOutSlice from './TrItOut/TryItOutSlice';
 
 export default configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
     feelings: feelingsSearchReducer,
     style: styleSearchReducer,
     results: resultsSlice,
+    tryItOut: tryItOutSlice,
   },
 });

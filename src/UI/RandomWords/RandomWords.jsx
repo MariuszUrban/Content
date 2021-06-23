@@ -1,4 +1,3 @@
-import { CallMerge } from "@material-ui/icons";
 import React, { useState, useEffect } from "react";
 import { getRandom } from "../../app/helpers/Random";
 import "./_randomWord.scss";
