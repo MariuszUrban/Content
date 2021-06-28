@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import LoginForm from "../../UI/LoginForm/LoginForm";
+import "./_login.scss";
 
 export const Login = () => {
-    return (
-        <div>
-            LOGIN
-        </div>
-    )
-}
+  return (
+    <div className="enter-container">
+      <LoginForm />
+    </div>
+  );
+};
