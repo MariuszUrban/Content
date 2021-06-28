@@ -1,28 +1,102 @@
+@import "../../App.scss";
+
 .demo-cards {
   overflow: hidden;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-side {
+  height: 100%;
+  width: 60%;
+  padding: 25px;
+}
+
+.right-side {
+  height: 100%;
+  width: 40%;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-control {
+  width: 15%;
+  display: flex;
+}
+
+.prev,
+.next {
+  width: 10%;
+  justify-content: center;
+  padding: 25px;
+}
+
+.card-control-prev {
+  background-color: transparent;
+}
+
+.card-control-next {
+  background-color: transparent;
 }
 
 .card-wrapper {
-  width: 100%;
-  height: 100%;
+  width: 65%;
+  height: 85%;
   will-change: transform;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .card-container {
-  background-size: inherit;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 100%;
-  height: 100%;
+  min-width: 340px;
+  max-width: 360px;
+  height: 85%;
   will-change: transform;
   border-radius: 10px;
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
     0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+
+.card-desc {
+  height: 15%;
+}
+
+.card-desc-title {
+  padding: 20px 0 20px 0;
+  font-family: $main-font;
+  @include font-size($text-medium);
+  text-overflow: ellipsis;
+  line-height: 20px;
+  white-space: break-spaces;
+  color: $dark-grey-blue;
+  text-align: center;
+}
+
+.card-desc-artist {
+  font-family: $main-font;
+  @include font-size($text-small);
+  text-overflow: ellipsis;
+  color: $dark-grey-blue;
+  text-align: center;
+  line-height: 20px;
+  white-space: break-spaces;
 }
 
 .result-image {
@@ -31,4 +105,32 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
+}
+
+.rs-icon-angle-right,
+.rs-icon-angle-left {
+  font-size: $text-large;
+  color: $dark-grey-blue;
+}
+
+.results-amount {
+  width: 100%;
+  font-family: $main-font;
+  @include font-size($text-big);
+  color: $dark-grey-blue;
+  text-align: center;
+}
+
+.results-amount-btns-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-back-to-search,
+.btn-reload {
+  padding: 15px;
+  span {
+    padding: 0;
+  }
 }
