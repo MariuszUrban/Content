@@ -7,7 +7,6 @@ import {
   selectState,
 } from "../../app/TrItOut/TryItOutSlice";
 import { useDispatch, useSelector } from "react-redux";
-import _ from "lodash";
 import "./_chooseThemeButtons.scss";
 
 const areEqual = (prevProps, nextProps) => true;
@@ -19,7 +18,7 @@ const ChooseThemeButtons = React.memo(({ random_themes }) => {
 
   function arrayRemove(arr, value) {
     return arr.filter(function (ele) {
-      return ele != value;
+      return ele !== value;
     });
   }
 

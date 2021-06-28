@@ -78,9 +78,7 @@ export const Results = () => {
             ))}
           </InfiniteScroll>
         </div>
-      ) : (
-        <div>PUNIA MELI</div>
-      )}
+      ) : null}
     </section>
   );
 };

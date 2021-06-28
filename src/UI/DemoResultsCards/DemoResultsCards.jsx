@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectState as resultsState } from "../../app/Results/ResultsSlice";
+import {
+  clearResults,
+  setUnready,
+  selectState as resultsState,
+} from "../../app/Results/ResultsSlice";
+import { removeThemesFromArray } from "../../app/TrItOut/TryItOutSlice";
 import { getRandom } from "../../app/helpers/Random";
+import { Button, Icon } from "rsuite";
 import _ from "lodash";
+import ButtonMain from "../ButtonMain/ButtonMain";
+import DemoResultModal from "../DemoResultModal/DemoResultModal";
 import "./_demoResultsCards.scss";
 
-const DemoResultsCards = () => {
+const DemoResultsCards = ({ setReady }) => {
   const state = useSelector(resultsState);
-  const { ready, results } = state;
-  const areReady = Object.keys(ready).every((key) => ready[key]);
+  const dispatch = useDispatch();
+  const { results } = state;
 
   const [availableArtworks, setAvailableArtworks] = useState("");
   const [artworksToRender, setArtworksToRender] = useState("");
-  console.log("🚀 ~ DemoResultsCards ~ artworksToRender", artworksToRender);
   const [artworksLeftToRender, setArtworksLeftToRender] = useState("");
+  const [pageNumber, setPageNumber] = useState(0);
 
   useEffect(() => {
     setAvailableArtworks([].concat.apply([], Object.values(results)));
-  }, [areReady]);
+  }, []);
 
   useEffect(() => {
     if (availableArtworks.length > 0) {
@@ -31,26 +39,86 @@ const DemoResultsCards = () => {
   let available = [].concat.apply([], Object.values(results));
   let random = getRandom(available, 20);
 
-  let idx = 0;
-  let section;
+  const showPrev = () => {
+    if (pageNumber === 0) {
+      setPageNumber(19);
+    } else {
+      setPageNumber(pageNumber - 1);
+    }
+  };
 
-  if (areReady) {
-    for (idx; idx < random.length; idx++) {
-      return (
-        <section className="demo-cards">
-          <div className="prev"></div>
+  const showNext = () => {
+    if (pageNumber === 19) {
+      setPageNumber(0);
+    } else {
+      setPageNumber(pageNumber + 1);
+    }
+  };
+
+  const fetchMoreData = () => {
+    let newLoad = getRandom(artworksLeftToRender, 24);
+    let diff = _.difference(artworksLeftToRender, newLoad);
+    setArtworksToRender(artworksToRender.concat(newLoad));
+    setArtworksLeftToRender(diff);
+  };
+
+  return (
+    <>
+      <section className="demo-cards">
+        <div className="left-side">
+          <div className="prev card-control ">
+            <Button classPrefix="card-control-prev" onClick={showPrev}>
+              <Icon icon="angle-left" />
+            </Button>
+          </div>
           <div className="card-wrapper">
-            {" "}
             <div
               className="card-container"
-              style={{ backgroundImage: `url(${random[idx].image})` }}
+              style={{ backgroundImage: `url(${random[pageNumber].image})` }}
             ></div>
+
+            <div className="card-desc">
+              <h1 className="card-desc-title" maxLength="20">
+                {random[pageNumber].title}
+              </h1>
+              <h2 className="card-desc-artist" maxLength="20">
+                {random[pageNumber].artist}
+              </h2>
+            </div>
           </div>
-          <div className="next"></div>
-        </section>
-      );
-    }
-  }
+          <div className="next card-control">
+            <Button classPrefix="card-control-next" onClick={showNext}>
+              <Icon icon="angle-right" />
+            </Button>
+          </div>
+        </div>
+        <div className="right-side">
+          <div className="results-amount-wrapper">
+            <p className="results-amount">{`Found ${
+              availableArtworks.length
+            } results for ${Object.keys(results)}`}</p>
+          </div>
+          <div className="results-amount-btns-wrapper">
+            <ButtonMain
+              text="Back to search"
+              classPrefix="btn-back-to-search"
+              getValue={() => {
+                setReady(false);
+                dispatch(removeThemesFromArray([]));
+                dispatch(clearResults({}));
+                dispatch(setUnready(false));
+              }}
+            />
+            <ButtonMain
+              text="Reload results"
+              classPrefix="btn-reload"
+              getValue={fetchMoreData}
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default DemoResultsCards;

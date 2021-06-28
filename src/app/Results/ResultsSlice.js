@@ -1,4 +1,4 @@
-import { createSlice, isAllOf, isFulfilled } from "@reduxjs/toolkit";
+import { createSlice, isFulfilled } from "@reduxjs/toolkit";
 import {
   fetchArtInstituteChicago,
   fetchCooperHewitt,
@@ -43,6 +43,15 @@ const resultsSlice = createSlice({
     saveRijksmuseum: (state, { payload }) => {
       state.results[payload.keyword].push(payload);
     },
+    clearResults: (state, { payload }) => {
+      state.results = payload;
+    },
+    setUnready: (state, { payload }) => {
+      state.ready.ArtInstituteChicago = payload;
+      state.ready.CooperHewitt = payload;
+      state.ready.MetropolitanMuseumOfArt = payload;
+      state.ready.Rijksmuseum = payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
@@ -75,5 +84,7 @@ export const {
   saveArtInstituteChicago,
   saveCooperHewitt,
   saveRijksmuseum,
+  clearResults,
+  setUnready,
 } = resultsSlice.actions;
 export default resultsSlice.reducer;

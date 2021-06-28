@@ -82,15 +82,12 @@ const About = () => {
           <div className="desc updates-list">
             Features I'm working on now and to be added soon:
             <br />
-            <br />
             Server setup
             <br /> Computer Vision image scan
             <br />
             VR view of selected artworks
             <br />
             File upload
-            <br />
-            <br />
             <br />
             <br />
             <br />

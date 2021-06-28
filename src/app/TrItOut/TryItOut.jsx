@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getRandom } from "../../app/helpers/Random";
 import ChooseThemeBackground from "../../UI/ChooseThemeBackground/ChooseThemeBackground";
 import ChooseThemeButtons from "../../UI/ChooseThemeButtons/ChooseThemeButtons";
@@ -14,29 +14,29 @@ import "./_tryItOut.scss";
 const TryItOut = () => {
   const state = useSelector(selectState);
   const results_state = useSelector(resultsState);
-  const { ready } = results_state;
   const dispatch = useDispatch();
+  const { ready } = results_state;
+  const { exampleThemes, is_pending } = state;
+  const [areReady, setReady] = useState(false);
 
-  const { exampleThemes, selected_themes, is_pending } = state;
+  useEffect(() => {
+    setReady(Object.keys(ready).every((key) => ready[key]));
+  }, [ready]);
+
   const random = getRandom(exampleThemes, 12);
-
-  const areReady = Object.keys(ready).every((key) => ready[key]);
 
   let section;
 
-  if (areReady) {
-    dispatch(setPendingStatus(false));
-  }
   if (!is_pending && !areReady) {
     section = (
       <>
-        {" "}
         <ChooseThemeButtons random_themes={random} />
         <ChooseThemeSearch />
         <ChooseThemeBackground />
       </>
     );
-  } else if (is_pending && !areReady) {
+  }
+  if (is_pending && !areReady) {
     section = (
       <>
         <div className="loading-wrapper">
@@ -50,8 +50,11 @@ const TryItOut = () => {
         </div>
       </>
     );
+  }
+  if (is_pending && areReady) {
+    dispatch(setPendingStatus(false));
   } else if (!is_pending && areReady) {
-    section = <DemoResultsCards />;
+    section = <DemoResultsCards setReady={setReady}/>;
   }
 
   return <div className="try-it-out-container">{section}</div>;
