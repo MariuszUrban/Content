@@ -1,0 +1,32 @@
+@import "../../App.scss";
+
+.social-login-container {
+  padding: 7.5px;
+  display: flex;
+  justify-content: center;
+}
+.enter-with-social {
+  width: 202px;
+  height: 38px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  border: 1px solid $dark-grey-blue;
+  border-radius: 25px;
+  background-color: $background;
+  transition: ease-in-out 0.32s;
+  letter-spacing: 2px;
+  @include font-size(0.7);
+  span,
+  i {
+    padding: 5px;
+  }
+}
+
+.enter-with-social:hover {
+  border: 1px solid $dark-grey-blue;
+  border-radius: 25px;
+  background-color: $dark-grey-blue;
+  color: #fff;
+}
