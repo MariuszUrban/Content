@@ -9,7 +9,7 @@ import {
   Schema,
 } from "rsuite";
 import SocialButton from "../SocialButton/SocialButton";
-import "./_loginForm.scss";
+import "../LoginForm/_loginForm.scss";
 
 const { StringType, NumberType } = Schema.Types;
 
@@ -59,7 +59,7 @@ function CheckForm() {
       />
       <ButtonToolbar classPrefix="form-input form-btn">
         <Button appearance="primary" type="submit">
-          Enter
+          Register
         </Button>
       </ButtonToolbar>
     </Form>
@@ -69,17 +69,17 @@ function CheckForm() {
 function SocialForm() {
   return (
     <Form>
-      <SocialButton provider="facebook" entry="Login" />
-      <SocialButton provider="google" entry="Login" />
-      <SocialButton provider="github" entry="Login" />
+      <SocialButton provider="facebook" entry="Sign-in" />
+      <SocialButton provider="google" entry="Sign-in" />
+      <SocialButton provider="github" entry="Sign-in" />
     </Form>
   );
 }
 
-const LoginForm = () => {
+const SignInForm = () => {
   return (
     <div className="login-form-container">
-      <h1 className="enter-greeting">Hi again!</h1>
+      <h1 className="enter-greeting">Feel yourself</h1>
       <CheckForm />
       <h1 className="enter-or">or</h1>
       <SocialForm />
@@ -87,4 +87,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignInForm;
