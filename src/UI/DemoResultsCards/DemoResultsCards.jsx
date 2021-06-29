@@ -10,7 +10,6 @@ import { getRandom } from "../../app/helpers/Random";
 import { Button, Icon } from "rsuite";
 import _ from "lodash";
 import ButtonMain from "../ButtonMain/ButtonMain";
-import DemoResultModal from "../DemoResultModal/DemoResultModal";
 import "./_demoResultsCards.scss";
 
 const DemoResultsCards = ({ setReady }) => {
