@@ -1,2 +1,33 @@
 @import "../../App.scss";
 
+.register-form {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputs-container,
+.register-input-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.register-input-container {
+  padding-bottom: 25px;
+}
+.register-input-label {
+  font-family: $logo-font;
+}
+
+.enter-with-social-buttons {
+  height: 35%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

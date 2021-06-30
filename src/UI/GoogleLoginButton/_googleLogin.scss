@@ -1,0 +1,30 @@
+@import "../../App.scss";
+
+.google-login-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+button.enter-with-google {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  border: $dark-grey-blue 1px solid !important;
+  border-radius: 30px !important;
+  background-color: transparent !important;
+  transition: ease-in-out 0.6s;
+  div {
+    background-color: transparent !important;
+  }
+  span {
+    color: $dark-grey-blue;
+  }
+}
+
+button.enter-with-google:hover {
+  transition: ease-in-out 0.6s;
+  background-color: #fff !important;
+  border: transparent 1px solid !important;
+}

@@ -8,7 +8,9 @@ import {
   Button,
   Schema,
 } from "rsuite";
-import SocialButton from "../SocialButton/SocialButton";
+import GoogleLoginButton from "../GoogleLoginButton/GoogleLogin";
+import { GitHubLoginButton } from "../GitHubLoginButton/GitHubLoginButton";
+import { FacebookLoginButton } from "../FacebookLoginButton/FacebookLoginButton";
 import "./_loginForm.scss";
 
 const { StringType, NumberType } = Schema.Types;
@@ -49,7 +51,7 @@ function TextField(props) {
 
 function CheckForm() {
   return (
-    <Form model={model}>
+    <Form model={model} classPrefix="login-form">
       <TextField classPrefix="form-input" name="email" label="Your e-mail" />
       <TextField
         classPrefix="form-input"
@@ -69,9 +71,9 @@ function CheckForm() {
 function SocialForm() {
   return (
     <Form>
-      <SocialButton provider="facebook" entry="Login" />
-      <SocialButton provider="google" entry="Login" />
-      <SocialButton provider="github" entry="Login" />
+      <FacebookLoginButton text="Login" />
+      <GoogleLoginButton text="Login" />
+      <GitHubLoginButton text="Login" />
     </Form>
   );
 }
@@ -79,9 +81,15 @@ function SocialForm() {
 const LoginForm = () => {
   return (
     <div className="login-form-container">
-      <h1 className="enter-greeting">Hi again!</h1>
+      <div className="enter-greeting-wrapper">
+        <h1 className="enter-greeting">Hi again!</h1>
+      </div>
+
       <CheckForm />
-      <h1 className="enter-or">or</h1>
+      <div className="enter-or-wrapper">
+        <h1 className="enter-or">or</h1>
+      </div>
+
       <SocialForm />
     </div>
   );
