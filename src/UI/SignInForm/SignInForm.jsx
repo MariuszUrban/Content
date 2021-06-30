@@ -1,77 +1,88 @@
 import React from "react";
+import { Form, ButtonToolbar, Button } from "rsuite";
+import { useForm } from "react-hook-form";
+import { useSelector, useDispatch } from "react-redux";
 import {
-  Form,
-  FormControl,
-  FormGroup,
-  ControlLabel,
-  ButtonToolbar,
-  Button,
-  Schema,
-} from "rsuite";
-import SocialButton from "../SocialButton/SocialButton";
-import "../LoginForm/_loginForm.scss";
+  userSelector,
+  registerUser,
+  setSuccess,
+} from "../../app/SignIn/SignInSlice";
 
-const { StringType, NumberType } = Schema.Types;
-
-const model = Schema.Model({
-  name: StringType().isRequired("This field is required."),
-  email: StringType()
-    .isEmail("Please enter a valid email address.")
-    .isRequired("This field is required."),
-  password: StringType().isRequired("This field is required."),
-  verifyPassword: StringType()
-    .addRule((value, data) => {
-      console.log(data);
-
-      if (value !== data.password) {
-        return false;
-      }
-
-      return true;
-    }, "The two passwords do not match")
-    .isRequired("This field is required."),
-});
-
-function TextField(props) {
-  const { name, label, accepter, classPrefix, ...rest } = props;
-  return (
-    <FormGroup classPrefix={classPrefix}>
-      <ControlLabel>{label} </ControlLabel>
-      <FormControl
-        classPrefix="enter"
-        name={name}
-        accepter={accepter}
-        {...rest}
-      />
-    </FormGroup>
-  );
-}
+import GoogleLoginButton from "../GoogleLoginButton/GoogleLogin";
+import { GitHubLoginButton } from "../GitHubLoginButton/GitHubLoginButton";
+import { FacebookLoginButton } from "../FacebookLoginButton/FacebookLoginButton";
+import "./_signInForm.scss";
 
 function CheckForm() {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    dispatch(registerUser(data));
+    setTimeout(() => {
+      dispatch(setSuccess());
+    }, 4000);
+  };
+
   return (
-    <Form model={model}>
-      <TextField classPrefix="form-input" name="email" label="Your e-mail" />
-      <TextField
-        classPrefix="form-input"
-        name="password"
-        label="Password"
-        type="password"
-      />
-      <ButtonToolbar classPrefix="form-input form-btn">
-        <Button appearance="primary" type="submit">
-          Register
-        </Button>
-      </ButtonToolbar>
-    </Form>
+    <>
+      <Form
+        classPrefix="register-form"
+        onSubmit={handleSubmit(onSubmit)}
+        method="POST"
+      >
+        <div className="inputs-container">
+          <div className="register-input-container">
+            <label for="email" className="register-input-label">
+              Your email address
+            </label>
+            <div className="register-input-wrapp">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                {...register("email", {
+                  pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/i,
+                })}
+                className="register-input"
+              />
+            </div>
+          </div>
+          <div className="register-input-container">
+            <label for="email" className="register-input-label">
+              Password
+            </label>
+            <div className="register-input-wrapp">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                className="register-input"
+                autocomplete="current-password"
+                {...register("password", { required: true })}
+              />
+            </div>
+          </div>
+        </div>
+
+        <ButtonToolbar classPrefix="form-input form-btn">
+          <Button appearance="primary" type="submit">
+            Register
+          </Button>
+        </ButtonToolbar>
+      </Form>
+    </>
   );
 }
 
 function SocialForm() {
   return (
-    <Form>
-      <SocialButton provider="facebook" entry="Sign-in" />
-      <SocialButton provider="google" entry="Sign-in" />
-      <SocialButton provider="github" entry="Sign-in" />
+    <Form classPrefix="enter-with-social-buttons">
+      <FacebookLoginButton text="Sign in  " />
+      <GoogleLoginButton text="Sign in  " />
+      <GitHubLoginButton text="Sign in" />
     </Form>
   );
 }
@@ -79,9 +90,13 @@ function SocialForm() {
 const SignInForm = () => {
   return (
     <div className="login-form-container">
-      <h1 className="enter-greeting">Feel yourself</h1>
+      <div className="greeting-wrapper">
+        <h1 className="enter-greeting">Feel yourself</h1>
+      </div>
       <CheckForm />
-      <h1 className="enter-or">or</h1>
+      <div className="enter-or-wrapper">
+        <h1 className="enter-or">or</h1>
+      </div>
       <SocialForm />
     </div>
   );

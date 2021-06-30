@@ -1,2 +1,22 @@
 @import "../../App.scss";
 
+.login-form {
+  height: 40%;
+}
+
+.enter-greeting-wrapper,
+.enter-or-wrapper {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enter-with-social-buttons {
+  height: 35%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

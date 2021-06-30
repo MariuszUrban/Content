@@ -1,0 +1,54 @@
+@import "../../App.scss";
+
+.survey-header {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.survey-header-title {
+  padding: 0 25px 0 25px;
+  text-align: center;
+  font-size: 5rem;
+  font-family: $logo-font;
+  color: $dark-grey-blue;
+}
+
+.survey-content {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.survey-desc {
+  font-family: $main-font;
+  color: $dark-grey-blue;
+  font-size: 3rem;
+  text-align: end;
+}
+
+.survey-footer {
+  height: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.survey-button-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px 0 25px;
+}
+.skip-btn {
+  opacity: 40%;
+}
+
+.skip-btn:hover {
+  opacity: 100%;
+}
