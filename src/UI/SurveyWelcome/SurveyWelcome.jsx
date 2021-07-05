@@ -1,9 +1,17 @@
 import React from "react";
-import ButtonMain from "../ButtonMain/ButtonMain";
+import { useDispatch } from "react-redux";
+import { setSection } from "../../app/features/SurveySlice";
 import SurveyHeader from "../SurveyHeader/SurveyHeader";
+import ButtonMain from "../ButtonMain/ButtonMain";
 import "./_surveyWelcome.scss";
 
-const SurveyWelcome = ({ button, button2 }) => {
+const SurveyWelcome = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    dispatch(setSection("create-profile"));
+  };
+
   return (
     <div className="survey-container">
       <div className="survey-header">
@@ -17,8 +25,8 @@ const SurveyWelcome = ({ button, button2 }) => {
       </div>
       <div className="survey-footer">
         <div className="survey-button-wrapper">
-          {button2 }
-          {button}
+          <ButtonMain text="Skip" classPrefix="skip-btn" />
+          <ButtonMain text="Next" getValue={handleSubmit} />
         </div>
       </div>
     </div>

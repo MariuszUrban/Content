@@ -1,31 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { profileSelector } from "../../app/features/SurveySlice";
 import SurveyWelcome from "../SurveyWelcome/SurveyWelcome";
 import SurveyProfile from "../SurveyProfile/SurveyProfile";
-import ButtonMain from "../ButtonMain/ButtonMain";
 import "./_survey.scss";
+import { SurveyColors } from "../SurveyColors/SurveyColors";
 
 const Survey = () => {
-  const [isShown, setIsShown] = useState("welcome");
-  console.log("🚀 ~ Survey ~ isShown", isShown);
+  const state = useSelector(profileSelector);
 
-  let section;
-
-  // if (isShown === "welcome") {
-  //   section = <SurveyWelcome onClick={setIsShown("create-profile")} />;
-  // }
-  // if (isShown === "create-profile") {
-  //   section = <SurveyProfile onClick={setIsShown("create-colors")} />;
-  // }
+  const { showSection } = state;
 
   return (
     <div className="survey-container">
-      {isShown === "welcome" ? (
-        <SurveyWelcome
-          text="welcome"
-          button={<ButtonMain text="Next" />}
-          button2={<ButtonMain text="Skip" classPrefix="skip-btn" />}
-        />
-      ) : null}
+      {showSection === "welcome" ? <SurveyWelcome text="welcome" /> : null}
+      {showSection === "create-profile" ? <SurveyProfile /> : null}
+      {showSection === "colors-profile" ? <SurveyColors /> : null}
     </div>
   );
 };
