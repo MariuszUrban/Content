@@ -1,1 +1,81 @@
 @import "../../App.scss";
+
+.survey-form-wrapper {
+  height: 100%;
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.survey-form-profile {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.survey-input-wrapper {
+  width: 100%;
+}
+
+.survey-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  border-bottom: solid 1px $dark-grey-blue;
+}
+
+.survey-input:focus {
+  outline: none;
+}
+
+.survey-input::-webkit-input-placeholder {
+  font-family: $logo-font;
+  color: $dark-grey-blue;
+}
+
+.survey-input::-webkit-outer-spin-button,
+.survey-input::-webkit-inner-spin-button {
+  appearance: 0;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.css-yk16xz-control {
+  border: none !important;
+  background-color: transparent !important;
+  border-bottom: 1px solid black !important;
+  border-radius: 0 !important;
+}
+
+.css-tj5bde-Svg {
+  color: $dark-grey-blue;
+}
+
+.css-1okebmr-indicatorSeparator {
+  background-color: $dark-grey-blue !important;
+}
+
+.css-1pahdxg-control {
+  border: none !important;
+  background-color: transparent !important;
+  border-bottom: 1px solid black !important;
+  border-radius: 0 !important;
+}
+
+.css-g1d714-ValueContainer {
+  padding: 0 !important;
+  font-family: $logo-font;
+}
+
+.css-1wa3eu0-placeholder {
+  color: $dark-grey-blue !important;
+}
+
+.css-26l3qy-menu {
+  background-color: $background !important;
+}

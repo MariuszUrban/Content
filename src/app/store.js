@@ -5,6 +5,7 @@ import styleSearchReducer from "./Searchers/styleSearch/StyleSearchSlice";
 import resultsSlice from "./Results/ResultsSlice";
 import tryItOutSlice from "./TrItOut/TryItOutSlice";
 import SignInSlice from "./SignIn/SignInSlice";
+import SurveySlice from "./features/SurveySlice";
 
 export default configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
     results: resultsSlice,
     tryItOut: tryItOutSlice,
     user: SignInSlice,
+    survey: SurveySlice,
   },
 });

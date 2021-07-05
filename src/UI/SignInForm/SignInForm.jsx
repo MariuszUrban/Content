@@ -7,7 +7,6 @@ import {
   registerUser,
   setSuccess,
 } from "../../app/SignIn/SignInSlice";
-
 import GoogleLoginButton from "../GoogleLoginButton/GoogleLogin";
 import { GitHubLoginButton } from "../GitHubLoginButton/GitHubLoginButton";
 import { FacebookLoginButton } from "../FacebookLoginButton/FacebookLoginButton";
