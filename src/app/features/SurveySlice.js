@@ -30,6 +30,37 @@ export const surveySlice = createSlice({
       "#e53c3c",
     ],
     chosenColors: [],
+    artworks: [
+      "Looted Sculpture",
+      "Pollock's Drips",
+      "NFT",
+      "Dutch Still Life",
+      "Art Meme",
+      "Zombie Formalist Painting",
+      "Gesamtkunstwerk",
+      "Presidential Portrait",
+      "Artist is Present",
+      "Britney's flowers",
+      "Cave painting",
+      "Minimalist Sculpture",
+      "Anthropocene",
+      "Baroque Fresco",
+      "Flipping artworks",
+      "Private Museums",
+      "Art of Performance",
+      "Playground Canal Street",
+      "Xenofeminism",
+      "Patriarchy",
+      "Hierarchy",
+      "Egalitarism",
+      "Art Market",
+      "White Cube",
+      "International Art English",
+      "Art School Industry",
+      "Plagiarism",
+      "Transparency",
+    ],
+    chosenArtworks: [],
   },
   reducers: {
     setSection: (state, { payload }) => {
@@ -53,6 +84,12 @@ export const surveySlice = createSlice({
     removeColors: (state, { payload }) => {
       state.chosenColors = arrayRemove(state.chosenColors, payload);
     },
+    setArtworks: (state, { payload }) => {
+      state.chosenArtworks.push(payload);
+    },
+    removeArtworks: (state, { payload }) => {
+      state.chosenArtworks = arrayRemove(state.chosenArtworks, payload);
+    },
   },
 });
 
@@ -64,6 +101,8 @@ export const {
   setLikes,
   setColors,
   removeColors,
+  setArtworks,
+  removeArtworks,
 } = surveySlice.actions;
 export const profileSelector = (state) => state.survey;
 export default surveySlice.reducer;
