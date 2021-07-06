@@ -1,0 +1,23 @@
+@import "../../App.scss";
+
+.survey-set {
+  font-size: 5rem;
+  font-family: $logo-font;
+  color: $dark-grey-blue;
+  display: flex;
+  justify-content: center;
+}
+
+.all-set {
+  display: flex;
+  justify-content: center;
+  span {
+    color: $dark-grey-blue;
+  }
+}
+
+.all-set:hover {
+  span {
+    color: #fff;
+  }
+}

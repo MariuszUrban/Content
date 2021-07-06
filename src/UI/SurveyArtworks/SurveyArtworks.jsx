@@ -27,6 +27,14 @@ const SurveyArtworks = () => {
     }
   };
 
+  const goBack = () => {
+    dispatch(setSection("artworks-profile"));
+  };
+
+  const goNext = () => {
+    dispatch(setSection("all-set"));
+  };
+
   return (
     <div className="survey-container">
       <div className="survey-header">
@@ -55,8 +63,8 @@ const SurveyArtworks = () => {
       </div>
       <div className="survey-footer">
         <div className="survey-button-wrapper">
-          <ButtonMain text="Back" />
-          <ButtonMain text="Next" />
+          <ButtonMain text="Back" getValue={goBack} />
+          <ButtonMain text="Next" getValue={goNext} />
         </div>
       </div>
     </div>

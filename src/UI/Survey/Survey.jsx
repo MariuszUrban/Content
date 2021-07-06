@@ -6,6 +6,7 @@ import SurveyProfile from "../SurveyProfile/SurveyProfile";
 import "./_survey.scss";
 import { SurveyColors } from "../SurveyColors/SurveyColors";
 import SurveyArtworks from "../SurveyArtworks/SurveyArtworks";
+import { SurveyGoodToGo } from "../SurveyGoodToGo/SurveyGoodToGo";
 
 const Survey = () => {
   const state = useSelector(profileSelector);
@@ -18,6 +19,7 @@ const Survey = () => {
       {showSection === "create-profile" ? <SurveyProfile /> : null}
       {showSection === "colors-profile" ? <SurveyColors /> : null}
       {showSection === "artworks-profile" ? <SurveyArtworks /> : null}
+      {showSection === "all-set" ? <SurveyGoodToGo /> : null}
     </div>
   );
 };
