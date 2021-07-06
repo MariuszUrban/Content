@@ -5,6 +5,7 @@ import SurveyWelcome from "../SurveyWelcome/SurveyWelcome";
 import SurveyProfile from "../SurveyProfile/SurveyProfile";
 import "./_survey.scss";
 import { SurveyColors } from "../SurveyColors/SurveyColors";
+import SurveyArtworks from "../SurveyArtworks/SurveyArtworks";
 
 const Survey = () => {
   const state = useSelector(profileSelector);
@@ -16,6 +17,7 @@ const Survey = () => {
       {showSection === "welcome" ? <SurveyWelcome text="welcome" /> : null}
       {showSection === "create-profile" ? <SurveyProfile /> : null}
       {showSection === "colors-profile" ? <SurveyColors /> : null}
+      {showSection === "artworks-profile" ? <SurveyArtworks /> : null}
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React from "react";
 
-const SurveyHeader = ({ text }) => {
+const SurveyHeader = ({ text, className }) => {
   return (
     <div className="survey-header-container">
-      <h1 className="survey-header-title">{text}</h1>
+      <h1 className={`survey-header-title ${className}`}>{text}</h1>
     </div>
   );
 };

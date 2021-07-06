@@ -1,0 +1,24 @@
+@import "../../App.scss";
+
+.survey-artworks-row {
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.survey-artworks-btn {
+  button {
+    width: fit-content;
+  }
+}
+
+.btn-chosen {
+  button {
+    transition: ease-in-out 1.2s;
+    background-color: $dark-grey-blue;
+    color: #fff;
+  }
+}
