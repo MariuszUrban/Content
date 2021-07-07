@@ -1,0 +1,12 @@
+@import "../../App.scss";
+
+.recent-activity-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $dark-grey-blue;
+  span {
+    padding-top: 40px;
+  }
+}

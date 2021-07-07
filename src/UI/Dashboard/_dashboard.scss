@@ -1,1 +1,19 @@
 @import "../../App.scss";
+
+.dashboard-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0 50px;
+}
+
+.control-panel-wrapper {
+  width: 6%;
+}
+
+.dashboard-sections-wrapper {
+  width: 94%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

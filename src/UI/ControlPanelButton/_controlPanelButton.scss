@@ -1,0 +1,34 @@
+@import "../../App.scss";
+
+.control-panel-btn-container {
+  width: 72px;
+  padding-bottom: 20px;
+}
+
+.control-panel-btn {
+  width: 100%;
+  background: transparent;
+  color: $dark-grey-blue;
+  transition: ease-in-out 1.2s;
+  .control-panel-text-wrapper {
+    font-family: $logo-font;
+    font-size: $text-small;
+    color: transparent;
+    transition: ease-in-out 1.2s;
+  }
+}
+
+.control-panel-btn:hover {
+  .control-panel-icon-wrapper {
+    color: $is-active;
+    transition: ease-in-out 1.2s;
+  }
+  .control-panel-text-wrapper {
+    color: $dark-grey-blue;
+    transition: ease-in-out 1.2s;
+  }
+}
+
+.control-panel-icon-wrapper {
+  padding-bottom: 10px;
+}
