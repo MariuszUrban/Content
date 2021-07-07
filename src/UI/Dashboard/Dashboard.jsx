@@ -1,9 +1,18 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import RecentActivity from "../RecentActivity/RecentActivity";
+import ControlPanel from "../ControlPanel/ControlPanel";
+import "./_dashboard.scss";
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
-
-  return <div className="container mx-auto">ELOOO</div>;
+  return (
+    <div className="dashboard-container">
+      <div className="control-panel-wrapper">
+        <ControlPanel />
+      </div>
+      <div className="dashboard-sections-wrapper">
+        <RecentActivity />
+      </div>
+    </div>
+  );
 };
 export default Dashboard;
