@@ -1,77 +1,116 @@
-import React, { useState } from "react";
+import React from "react";
+import {
+  setSection,
+  toggleOpenClose,
+  controlPanelSelector,
+} from "../../app/features/ControlPanelSlice";
+import { Link, useRouteMatch } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
 import { Icon } from "rsuite";
 import ControlPanelButton from "../ControlPanelButton/ControlPanelButton";
 import "./_controlPanel.scss";
 
 const ControlPanel = () => {
-  const [isOpen, toggleOpenClose] = useState(false);
+  let { url } = useRouteMatch();
+  const state = useSelector(controlPanelSelector);
+  const { isPanelOpen } = state;
+
+  const dispatch = useDispatch();
 
   const handleOpenClose = () => {
-    if (isOpen) {
-      toggleOpenClose(false);
+    if (isPanelOpen) {
+      dispatch(toggleOpenClose(false));
     } else {
-      toggleOpenClose(true);
+      dispatch(toggleOpenClose(true));
     }
   };
 
   let showHidePanel;
 
-  if (!isOpen) {
+  if (!isPanelOpen) {
     showHidePanel = (
       <ControlPanelButton
-        value="control-search"
-        text="Close"
+        text="Open"
         icon={<Icon icon="bars" size="2x" />}
         onClick={handleOpenClose}
       />
     );
   }
-  if (isOpen) {
+  if (isPanelOpen) {
     showHidePanel = (
-      <>
-        <ControlPanelButton
-          value="control-search"
-          text="Close"
-          icon={<Icon icon="close" size="2x" />}
-          onClick={handleOpenClose}
-        />
-        <ControlPanelButton
-          value="control-activity"
-          text="Activity"
-          icon={<Icon icon="dashboard" size="2x" />}
-          onClick
-        />
-        <ControlPanelButton
-          value="control-fav"
-          text="Favorites"
-          icon={<Icon icon="heart-o" size="2x" />}
-          onClick
-        />
-        <ControlPanelButton
-          value="control-list"
-          text="Lists"
-          icon={<Icon icon="list" size="2x" />}
-          onClick
-        />
-        <ControlPanelButton
-          value="control-notes"
-          text="Notes"
-          icon={<Icon icon="sticky-note-o" size="2x" />}
-          onClick
-        />
-        <ControlPanelButton
-          value="control-upload"
-          text="Upload"
-          icon={<Icon icon="cloud-upload" size="2x" />}
-          onClick
-        />
-        <ControlPanelButton
-          value="control-3d"
-          text="3D View"
-          icon={<Icon icon="cubes" size="2x" />}
-          onClick
-        />
-      </>
+      <ul>
+        <li>
+          <ControlPanelButton
+            text="Close"
+            icon={<Icon icon="close" size="2x" />}
+            onClick={handleOpenClose}
+          />
+        </li>
+        <li>
+          <Link to={`${url}/control-search`}>
+            <ControlPanelButton
+              value="control-search"
+              text="Search"
+              icon={<Icon icon="search" size="2x" />}
+            />
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/control-activity`}>
+            <ControlPanelButton
+              value="control-activity"
+              text="Activity"
+              icon={<Icon icon="dashboard" size="2x" />}
+            />
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/control-fav`}>
+            <ControlPanelButton
+              value="control-fav"
+              text="Favorites"
+              icon={<Icon icon="heart-o" size="2x" />}
+            />
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/control-lists`}>
+            <ControlPanelButton
+              value="control-list"
+              text="Lists"
+              icon={<Icon icon="list" size="2x" />}
+            />
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/control-notes`}>
+            <ControlPanelButton
+              value="control-notes"
+              text="Notes"
+              icon={<Icon icon="sticky-note-o" size="2x" />}
+            />
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/control-upload`}>
+            <ControlPanelButton
+              value="control-upload"
+              text="Upload"
+              icon={<Icon icon="cloud-upload" size="2x" />}
+            />
+          </Link>
+        </li>
+        <li>
+          <Link to={`${url}/control-3d`}>
+            <ControlPanelButton
+              value="control-3d"
+              text="3D View"
+              icon={<Icon icon="cubes" size="2x" />}
+            />
+          </Link>
+        </li>
+      </ul>
     );
   }
 

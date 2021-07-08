@@ -6,11 +6,12 @@ import NavigationBar from "./UI/NavigationBar/NavigationBar";
 import { Login } from "./app/Login/Login";
 import { SignIn } from "./app/SignIn/SignIn";
 import About from "./UI/About/About";
-import Welcome from "./UI/Welcome";
+import Welcome from "./UI/Welcome/Welcome";
 import Footer from "./UI/Footer/Footer.jsx";
 import TryItOut from "./app/TrItOut/TryItOut";
 import Dashboard from "./UI/Dashboard/Dashboard";
 import Survey from "./UI/Survey/Survey";
+import RecentActivity from "./UI/RecentActivity/RecentActivity";
 
 function App() {
   let routes = (
@@ -18,22 +19,22 @@ function App() {
       <Route exact path="/">
         <Welcome />
       </Route>
-      <Route exact path="/try-it">
+      <Route path="/try-it">
         <TryItOut />
       </Route>
-      <Route exact path="/about">
+      <Route path="/about">
         <About />
       </Route>
-      <Route exact path="/login">
+      <Route path="/login">
         <Login />
       </Route>
-      <Route exact path="/sign-in">
+      <Route path="/sign-in">
         <SignIn />
       </Route>
-      <Route exact path="/dashboard">
+      <Route path="/dashboard">
         <Dashboard />
       </Route>
-      <Route exact path="/survey">
+      <Route path="/survey">
         <Survey />
       </Route>
     </Switch>
