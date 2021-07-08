@@ -1,8 +1,8 @@
 import React from "react";
-import ButtonMain from "../UI/ButtonMain/ButtonMain";
-import RandomWords from "./RandomWords/RandomWords";
+import ButtonMain from "../ButtonMain/ButtonMain";
+import RandomWords from "../RandomWords/RandomWords";
 import { Link } from "react-router-dom";
-import "./Welcome/_welcome.scss";
+import "./_welcome.scss";
 
 const Welcome = () => {
   return (
