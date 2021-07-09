@@ -105,7 +105,7 @@ const ControlPanel = () => {
           <Link to={`${url}/control-3d`}>
             <ControlPanelButton
               value="control-3d"
-              text="3D View"
+              text="AR View"
               icon={<Icon icon="cubes" size="2x" />}
             />
           </Link>

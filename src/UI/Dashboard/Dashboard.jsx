@@ -5,19 +5,14 @@ import Search from "../Search/Search";
 import Favorites from "../Favorites/Favorites";
 import Upload from "../Upload/Upload";
 import ThreeDView from "../ThreeDView/ThreeDView";
-import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { controlPanelSelector } from "../../app/features/ControlPanelSlice";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import "./_dashboard.scss";
 import Lists from "../Lists/Lists";
 import Notes from "../Notes/Notes";
 
 const Dashboard = () => {
-  const state = useSelector(controlPanelSelector);
   let { path } = useRouteMatch();
-  let { topicId } = useParams();
-  console.log("🚀 ~ Dashboard ~ topicId", topicId);
 
   return (
     <div className="dashboard-container">

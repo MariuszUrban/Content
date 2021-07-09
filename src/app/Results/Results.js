@@ -8,7 +8,7 @@ import { FlexboxGrid } from "rsuite";
 import "./_results.scss";
 import _ from "lodash";
 
-export const Results = () => {
+const Results = () => {
   const state = useSelector(selectState);
   const { results, ready } = state;
 
@@ -82,3 +82,5 @@ export const Results = () => {
     </section>
   );
 };
+
+export default Results;
