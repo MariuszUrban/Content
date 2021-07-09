@@ -12,7 +12,7 @@ import {
 } from "../../Museums/index";
 import { styles } from "./utils/Styles";
 import "./_styleSearch.scss";
-export const StyleSearch = () => {
+const StyleSearch = () => {
   const state = useSelector(selectState);
   const dispatch = useDispatch();
   const { selected_styles } = state;
@@ -86,3 +86,5 @@ export const StyleSearch = () => {
     </section>
   );
 };
+
+export default StyleSearch;

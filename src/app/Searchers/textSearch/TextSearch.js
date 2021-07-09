@@ -7,6 +7,7 @@ import {
   ButtonToolbar,
   Button,
 } from "rsuite";
+import { Link, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { saveKeywords, selectState } from "./TextSearchSlice";
 import { createArrayForKeyword } from "../../Results/ResultsSlice";
@@ -18,9 +19,10 @@ import {
 } from "../../Museums/index";
 import "./_textSearch.scss";
 
-export default function ArtworkSearch() {
+export default function ArtworkSearch({ setPending }) {
   const state = useSelector(selectState);
   const dispatch = useDispatch();
+  let { url } = useRouteMatch();
 
   let keywords;
 
@@ -31,6 +33,7 @@ export default function ArtworkSearch() {
 
   const handleSubmit = () => {
     if (state.keywords.length !== 0 && state.keywords.length <= 5) {
+      setPending();
       state.keywords.forEach((word) => {
         dispatch(createArrayForKeyword(word));
         dispatch(fetchArtInstituteChicago(word));
@@ -54,9 +57,12 @@ export default function ArtworkSearch() {
       </FormGroup>
       <FormGroup>
         <ButtonToolbar>
-          <Button appearance="primary" color="green" onClick={handleSubmit}>
-            Submit
-          </Button>
+          <Link to={`${url}/results`}>
+            <Button appearance="primary" color="green" onClick={handleSubmit}>
+              Submit
+            </Button>
+          </Link>
+
           <Button appearance="default" color="cyan">
             Clear
           </Button>

@@ -1,0 +1,29 @@
+@import "../../../App.scss";
+
+.search-control-bar-header {
+  text-align: center;
+  font-family: $logo-font;
+  padding-bottom: 20px;
+  color: $dark-grey-blue;
+  h1 {
+    @include font-size($text-big);
+  }
+}
+
+.search-control-bar-btns {
+  ul {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+  }
+  a {
+    color: $dark-grey-blue;
+  }
+}
+
+.active {
+  button {
+    background-color: $dark-grey-blue;
+    color: #fff;
+  }
+}
