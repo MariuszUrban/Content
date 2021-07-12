@@ -2,7 +2,7 @@
 
 .searcher-wrapper {
   width: 100%;
-  height: 70%;
+  height: 30%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -11,4 +11,15 @@
 .control-bar-wrapper {
   width: 100%;
   height: 30%;
+}
+
+.themes-wrapper {
+  height: 40%;
+}
+
+.choose-search-header {
+  @include font-size($text-large);
+  font-family: $logo-font;
+  color: $dark-grey-blue;
+  letter-spacing: 2px;
 }

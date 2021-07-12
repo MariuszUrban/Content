@@ -1,7 +1,63 @@
+@import "../../../App.scss";
+
 #style-search {
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.rs-picker-input,
+.rs-picker-input,
+.rs-picker-default,
+.rs-picker-toggle-wrapper,
+.rs-picker-placement-bottom-start,
+.rs-picker-tag {
+  width: 100%;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: 1px solid $dark-grey-blue;
+  border-radius: 25px;
+  background-color: $background;
+}
+
+.rs-picker-input.rs-picker-tag .rs-picker-toggle.rs-btn {
+  width: 100%;
+  border-radius: 25px;
+  background-color: $background !important;
+}
+
+.rs-picker-toggle .rs-picker-toggle-placeholder {
+  color: #8e8e93;
+  padding-left: 25px;
+}
+
+.rs-picker-toggle.rs-btn .rs-picker-toggle-caret {
+  padding-right: 25px;
+}
+
+.rs-picker-menu {
+  background-color: $background;
+  border: 1px solid $dark-grey-blue;
+}
+
+.rs-check-item:not(.rs-checkbox-disabled):hover,
+.rs-check-item-focus {
+  color: #fff;
+  background-color: $dark-grey-blue;
+  opacity: 20%;
+  i,
+  span,
+  label {
+    color: #fff;
+  }
+}
+
+.rs-picker-toggle-clean {
+  padding-right: 5%;
 }
