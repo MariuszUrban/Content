@@ -12,7 +12,7 @@ import {
 } from "../../Museums/index";
 import { styles } from "./utils/Styles";
 import "./_styleSearch.scss";
-const StyleSearch = () => {
+const StyleSearch = ({ setPending }) => {
   const state = useSelector(selectState);
   const dispatch = useDispatch();
   const { selected_styles } = state;
@@ -23,6 +23,7 @@ const StyleSearch = () => {
 
   const handleSearch = () => {
     if (selected_styles.length !== 0 && selected_styles.length <= 5) {
+      setPending();
       selected_styles.forEach((word) => {
         dispatch(createArrayForKeyword(word));
         dispatch(fetchArtInstituteChicago(word));
@@ -56,7 +57,7 @@ const StyleSearch = () => {
       <TagPicker
         creatable
         data={styles}
-        style={{ width: 300 }}
+        // classPrefix="picker"
         menuStyle={{ width: 300 }}
         groupBy="role"
         placeholder="Select Style"
@@ -79,7 +80,11 @@ const StyleSearch = () => {
         }}
       />
       <ButtonGroup>
-        <Button onClick={handleSearch} disabled={checkedCount <= 0}>
+        <Button
+          classPrefix="btn-ready"
+          onClick={handleSearch}
+          disabled={checkedCount <= 0}
+        >
           Search
         </Button>
       </ButtonGroup>

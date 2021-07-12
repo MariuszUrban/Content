@@ -126,14 +126,22 @@ export const FeelingsSearch = () => {
           })}
         </FlexboxGrid>
       </div>
-      <ButtonGroup>
-        <Button onClick={handleClick} disabled={checkedCount <= 0}>
+      <div className="feeling-search-btns">
+        <Button
+          classPrefix="btn-ready"
+          onClick={handleClick}
+          disabled={checkedCount <= 0}
+        >
           Check for artworks
         </Button>
-        <Button onClick={handleClear} disabled={checkedCount <= 0}>
+        <Button
+          classPrefix="clear"
+          onClick={handleClear}
+          disabled={checkedCount <= 0}
+        >
           Clear
         </Button>
-      </ButtonGroup>
+      </div>
     </section>
   );
 };

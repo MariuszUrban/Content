@@ -7,7 +7,6 @@ import "./_section.scss";
 
 const Section = ({ setPending }) => {
   let { topicId } = useParams();
-  console.log("🚀 ~ Section ~ topicId", topicId);
 
   let section;
 
@@ -21,7 +20,7 @@ const Section = ({ setPending }) => {
     section = <FeelingsSearch setPending={setPending} />;
   }
 
-  return <div>{section}</div>;
+  return <div className="search-section-wrapper">{section}</div>;
 };
 
 export default Section;

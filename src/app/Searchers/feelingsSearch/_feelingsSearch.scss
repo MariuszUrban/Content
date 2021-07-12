@@ -1,6 +1,8 @@
+@import "../../../App.scss";
+
 #feelings-search {
   height: fit-content;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +17,7 @@
 .rs-flex-box-grid {
   height: 100%;
   width: 100%;
+  padding-bottom: 25px;
 }
 
 .rs-checkbox-group {
@@ -27,4 +30,40 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.rs-checkbox-group {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.rs-checkbox-wrapper .rs-checkbox-inner::before {
+  border: solid 1px $dark-grey-blue;
+}
+
+.rs-checkbox-checker {
+  label {
+    color: $dark-grey-blue;
+    transition: cubic-bezier(0.22, 0.61, 0.36, 1) 1.2s;
+  }
+}
+
+.rs-flex-box-grid-item {
+  width: 100%;
+}
+
+.feeling-search-btns {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.clear {
+  height: 45px;
+  width: 150px;
+  border-radius: 25px;
+  transition: ease-in-out 1.2;
 }

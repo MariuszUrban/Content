@@ -1,3 +1,5 @@
+@import "../../../App.scss";
+
 .rs-control-label {
   text-align: center;
 }
@@ -5,4 +7,86 @@
 .rs-btn-toolbar {
   display: flex;
   justify-content: center;
+}
+
+.search-by-keyword-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.searchy-by-keyword-input-wrapper {
+  border: 0.5px solid $dark-grey-blue;
+  border-radius: 25px;
+  width: 100%;
+}
+
+.rs-form:not(.rs-form-inline) .rs-form-group:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.search-by-keyword-input {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  height: 40px;
+  input {
+    width: 80%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+  }
+  a {
+    height: 100%;
+    width: 10%;
+    border-radius: 0 25px 25px 0;
+    background-color: transparent;
+    transition: 1.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    color: $dark-grey-blue;
+  }
+}
+
+.search-by-keyword-input {
+  a:hover {
+    background-color: $dark-grey-blue;
+    opacity: 80%;
+    border-radius: 0 25px 25px 0;
+    transition: 1.2s ease-in-out;
+    color: #fff;
+  }
+}
+
+.btn-ready {
+  height: 45px;
+  width: 150px;
+  background-color: $is-ready;
+  border-radius: 25px;
+  transition: ease-in-out 1.2;
+  color: #fff;
+}
+
+.btn-ready-disabled {
+  opacity: 50%;
+  height: 45px;
+  width: 150px;
+  background-color: $is-ready;
+  transition: ease-in-out 1.2;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.clear {
+  color: #fff;
+  border: none;
+  background-color: rgb(25, 116, 201);
+  transition: ease-in-out 1.2;
+}
+.clear-disabled {
+  opacity: 50%;
+  transition: ease-in-out 1.2;
 }

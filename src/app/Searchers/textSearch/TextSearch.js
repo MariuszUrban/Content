@@ -2,10 +2,11 @@ import React from "react";
 import {
   Form,
   FormGroup,
-  FormControl,
-  ControlLabel,
   ButtonToolbar,
   Button,
+  InputGroup,
+  Input,
+  Icon,
 } from "rsuite";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,22 +20,38 @@ import {
 } from "../../Museums/index";
 import "./_textSearch.scss";
 
+const CustomInputGroupWidthButton = ({
+  onClick,
+  onChange,
+  placeholder,
+  ...props
+}) => (
+  <InputGroup
+    classPrefix="input-group search-by-keyword-input"
+    {...props}
+    inside
+  >
+    <Input onChange={onChange} placeholder={placeholder} />
+    <InputGroup.Button onClick={onClick}>
+      <Icon icon="search" size="x2" />
+    </InputGroup.Button>
+  </InputGroup>
+);
+
 export default function ArtworkSearch({ setPending }) {
   const state = useSelector(selectState);
+  const { keywords } = state;
   const dispatch = useDispatch();
   let { url } = useRouteMatch();
 
-  let keywords;
-
   const handleChange = (text) => {
-    keywords = text.split(/\W/g);
-    dispatch(saveKeywords(keywords));
+    dispatch(saveKeywords(text.split(/\W/g)));
   };
 
   const handleSubmit = () => {
-    if (state.keywords.length !== 0 && state.keywords.length <= 5) {
+    if (keywords.length !== 0 && keywords.length <= 5) {
       setPending();
-      state.keywords.forEach((word) => {
+      keywords.forEach((word) => {
         dispatch(createArrayForKeyword(word));
         dispatch(fetchArtInstituteChicago(word));
         dispatch(fetchCooperHewitt(word));
@@ -45,25 +62,35 @@ export default function ArtworkSearch({ setPending }) {
   };
 
   return (
-    <Form>
-      <FormGroup>
-        <ControlLabel>Search for artwork</ControlLabel>
-        <FormControl
-          rows={5}
-          name="textarea"
-          componentClass="textarea"
+    <Form classPrefix="rs-form search-by-keyword-form">
+      <FormGroup classPrefix="rs-form-group searchy-by-keyword-input-wrapper">
+        <CustomInputGroupWidthButton
+          size="lg"
+          placeholder="Search"
           onChange={handleChange}
+          onClick={handleSubmit}
         />
       </FormGroup>
       <FormGroup>
         <ButtonToolbar>
           <Link to={`${url}/results`}>
-            <Button appearance="primary" color="green" onClick={handleSubmit}>
+            <Button
+              disabled={keywords.length <= 0}
+              classPrefix="btn-ready"
+              appearance="primary"
+              color="green"
+              onClick={handleSubmit}
+            >
               Submit
             </Button>
           </Link>
 
-          <Button appearance="default" color="cyan">
+          <Button
+            disabled={keywords.length <= 0}
+            classPrefix="btn-ready clear"
+            appearance="default"
+            color="cyan"
+          >
             Clear
           </Button>
         </ButtonToolbar>

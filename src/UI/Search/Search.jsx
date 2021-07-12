@@ -12,9 +12,6 @@ import "./_search.scss";
 const Search = () => {
   let { path, url } = useRouteMatch();
   let { topicId } = useParams();
-  console.log("🚀 ~ Search ~ topicId", topicId);
-  console.log("🚀 ~ Search ~ path", path);
-  console.log("🚀 ~ Search ~ url", url);
 
   const [isPending, setIsPending] = useState(false);
   const [areReady, setReady] = useState(false);
@@ -39,26 +36,17 @@ const Search = () => {
         </div>
         <div className="searcher-wrapper">
           <Switch>
-            <Route exact path={path} children={<h1>ekstra</h1>} />
+            <Route
+              exact
+              path={path}
+              children={
+                <h1 className="choose-search-header">Choose your search</h1>
+              }
+            />
             <Route
               path={`${path}/:topicId`}
               children={<Section setPending={handlePending} />}
             />
-
-            {/* <Route
-              path={`${path}/by-keywords`}
-              children={<TextSearch setPending={handlePending} />}
-            />
-            <Route
-              exact
-              path={`${path}/by-periods`}
-              children={<StyleSearch />}
-            />
-            <Route
-              exact
-              path={`${path}/by-themes`}
-              children={<FeelingsSearch />}
-            /> */}
           </Switch>
         </div>
       </>
