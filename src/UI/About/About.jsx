@@ -89,15 +89,8 @@ const About = () => {
             <br />
             File upload
             <br />
-            <br />
-            <br />
-            <br />
             ...and hopefully some extra
-            <br />
-            <br />
-            <br />
-            <br />
-            <Icon icon="angellist" size="2x" />
+            <br /> <Icon icon="angellist" size="2x" />
           </div>
         </p>
       </div>

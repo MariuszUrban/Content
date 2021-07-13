@@ -11,7 +11,7 @@ const Logo = () => {
           <img src={Museum} alt="" />
         </div>
         <div className="logo-name">
-          <h1>Collection</h1>
+          <h1>Content</h1>
         </div>
       </Link>
     </div>

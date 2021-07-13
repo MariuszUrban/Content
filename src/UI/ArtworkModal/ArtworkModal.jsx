@@ -2,7 +2,6 @@ import React from "react";
 import {
   Modal,
   Container,
-  Header,
   Content,
   Footer,
   ButtonGroup,
@@ -27,15 +26,18 @@ export const ArtworkModal = ({
 }) => {
   return (
     <Modal full show={isModalOpen} onHide={toggleOpenClose}>
-      <Modal.Header></Modal.Header>
+      <div className="modal-icon-wrapper">
+        <Icon icon="close" size="x6" onClick={toggleOpenClose} />
+      </div>
+
       <Grid fluid>
-        <Row className="full-artwork">
+        <Row classPrefix="full-artwork">
           <Col xsHidden xs={18} className="left-side">
             <img className="artwork-image-big" src={image} alt="" />
           </Col>
           <Col xsHidden xs={6} className="right-side">
-            <Modal.Body>
-              <Container>
+            <Modal.Body className="modal-content-wrapper">
+              <Container className="modal-content-container">
                 <Content className="about-art-work">
                   <Typography align="left" variant="h5">
                     {title}
@@ -51,7 +53,7 @@ export const ArtworkModal = ({
                   </Typography>
                 </Content>
                 <Content>
-                  <ButtonGroup>
+                  <ButtonGroup className="modal-control-btns">
                     <IconButton
                       icon={<Icon icon="heart-o" />}
                       circle
@@ -63,7 +65,6 @@ export const ArtworkModal = ({
                   </ButtonGroup>
                 </Content>
                 <Content>Content</Content>
-                <Footer>Footer</Footer>
               </Container>
             </Modal.Body>
           </Col>

@@ -10,8 +10,7 @@ import Section from "../Section/Section";
 import "./_search.scss";
 
 const Search = () => {
-  let { path, url } = useRouteMatch();
-  let { topicId } = useParams();
+  let { path  } = useRouteMatch();
 
   const [isPending, setIsPending] = useState(false);
   const [areReady, setReady] = useState(false);

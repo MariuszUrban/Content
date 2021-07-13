@@ -46,6 +46,12 @@
   border: 1px solid $dark-grey-blue;
 }
 
+.rs-checkbox-checker {
+  label {
+    color: #fff;
+  }
+}
+
 .rs-check-item:not(.rs-checkbox-disabled):hover,
 .rs-check-item-focus {
   color: #fff;
