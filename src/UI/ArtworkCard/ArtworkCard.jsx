@@ -6,8 +6,6 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-// import IconButton from "@material-ui/core/IconButton";
-// import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Typography from "@material-ui/core/Typography";
 import "./_artworkCard.scss";
 import { AddToFavorites } from "../AddToFavorites/AddToFavorites";
@@ -15,32 +13,40 @@ import { Share } from "../Share/Share";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
-    minWidth: 280,
-    minHeight: 420,
     height: "100%",
     position: "relative",
+    backgroundColor: "#cdd8df",
+    border: "none",
   },
   content: {
-    height: "90%",
-  },
-  media: {
     height: "85%",
+    backgroundColor: "#cdd8df",
+  },
+  actionButtons: { height: "15%", backgroundColor: "#cdd8df" },
+  media: {
+    height: "80%",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    borderRadius: "15px 15px 0 0",
   },
   info: {
-    height: "15%",
+    height: "20%",
     paddingTop: 10,
     paddingBottom: 10,
   },
   title: {
     fontSize: 12,
     fontStyle: "italic",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
   },
   description: {
     fontSize: 10,
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
   },
   action: {
     height: "100%",
@@ -48,7 +54,6 @@ const useStyles = makeStyles({
   image: {
     height: "100%",
   },
-  actionButtons: { height: "10%" },
 });
 
 export const ArtworkCard = ({ image, artist, title, toggleOpenClose }) => {
@@ -62,18 +67,17 @@ export const ArtworkCard = ({ image, artist, title, toggleOpenClose }) => {
           <Typography
             className={classes.title}
             gutterBottom
-            variant="h2"
-            component="h2"
-            maxLength="30"
+            variant="body1"
+            component="p"
+            maxLength="20"
           >
             {title}
           </Typography>
           <Typography
             className={classes.description}
             variant="body2"
-            color="textSecondary"
             component="p"
-            maxLength="70"
+            maxLength="20"
           >
             {artist}
           </Typography>

@@ -41,7 +41,7 @@ const SearchControlBar = () => {
             <Link to={`${url}/by-periods`}>
               <ButtonMain
                 classPrefix={handleActiveClass("Period")}
-                text="Period"
+                text="Styles"
                 value="periods"
                 getValue={handleState}
               />

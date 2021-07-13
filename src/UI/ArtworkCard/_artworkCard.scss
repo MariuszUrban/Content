@@ -1,0 +1,19 @@
+@import "../../App.scss";
+
+.flex-box-grid-results {
+  min-height: 280px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.flex-box-grid-item-result {
+  width: 20%;
+  height: 320px;
+  padding: 5px;
+  border: 0.5px solid $dark-grey-blue;
+  border-radius: 15px;
+  box-shadow: 1px 16px 19px -8px rgb(32, 67, 97, 0.6);
+}

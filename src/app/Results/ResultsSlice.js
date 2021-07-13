@@ -21,7 +21,6 @@ const initialState = {
     CooperHewitt: false,
     Rijksmuseum: false,
   },
-  per_render: 24,
 };
 
 const resultsSlice = createSlice({
@@ -51,6 +50,17 @@ const resultsSlice = createSlice({
       state.ready.CooperHewitt = payload;
       state.ready.MetropolitanMuseumOfArt = payload;
       state.ready.Rijksmuseum = payload;
+    },
+    clearState: (state, _) => {
+      state.results = {};
+      state.ready = {
+        MetropolitanMuseumOfArt: false,
+        ArtInstituteChicago: false,
+        CooperHewitt: false,
+        Rijksmuseum: false,
+      };
+
+      return state;
     },
   },
   extraReducers: (builder) => {
@@ -86,5 +96,6 @@ export const {
   saveRijksmuseum,
   clearResults,
   setUnready,
+  clearState,
 } = resultsSlice.actions;
 export default resultsSlice.reducer;

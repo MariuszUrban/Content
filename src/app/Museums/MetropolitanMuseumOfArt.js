@@ -11,7 +11,6 @@ export const fetchMET = createAsyncThunk(
         response.json();
       })
       .then((data) => {
-        console.log("🚀 ~ .then ~ data", data);
         let ids = data.objectIDs;
         ids.map(async (id) => {
           return await fetch(

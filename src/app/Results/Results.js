@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 import { getRandom } from "../helpers/Random";
 import ResultCard from "../../UI/ResultCard/ResultCard.jsx";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useSelector } from "react-redux";
-import { selectState } from "./ResultsSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectState, clearState } from "./ResultsSlice";
 import { FlexboxGrid } from "rsuite";
+import ButtonMain from "../../UI/ButtonMain/ButtonMain";
 import "./_results.scss";
 import _ from "lodash";
 
 const Results = () => {
   const state = useSelector(selectState);
   const { results, ready } = state;
-
+  const { path } = useRouteMatch();
   const areReady = Object.keys(ready).every((key) => ready[key]);
-
+  const dispatch = useDispatch();
   const [availableArtworks, setAvailableArtworks] = useState("");
   const [artworksToRender, setArtworksToRender] = useState("");
   const [artworksLeftToRender, setArtworksLeftToRender] = useState("");
@@ -32,27 +34,43 @@ const Results = () => {
   }, [availableArtworks]);
 
   const fetchMoreData = () => {
+    console.log("SIEMANO");
     let newLoad = getRandom(artworksLeftToRender, 24);
     let diff = _.difference(artworksLeftToRender, newLoad);
     setArtworksToRender(artworksToRender.concat(newLoad));
     setArtworksLeftToRender(diff);
   };
 
+  const handleClearState = () => {
+    dispatch(clearState());
+  };
+
   return (
     <section id="results">
+      <div className="back-to-search">
+        <Link to={path}>
+          <ButtonMain
+            text="back to search"
+            classPrefix="back-to-search-btn"
+            getValue={handleClearState}
+          />
+        </Link>
+      </div>
       {areReady ? (
-        <div className="show-grid">
+        <div className="show-grid" id="scrollableDiv">
           <InfiniteScroll
+            className="results-infinite-scroll"
             dataLength={artworksToRender.length}
             next={fetchMoreData}
             hasMore={true}
-            loader={<h4>Loading...</h4>}
+            loader={<h4 className='infinite-loader'>Loading...</h4>}
+            scrollableTarget="scrollableDiv"
           >
             {_.chunk(artworksToRender, 4).map((array, index) => (
               <FlexboxGrid
                 classPrefix="flex-box-grid-results"
                 justify="space-around"
-                key={`${index + 1}`}
+                key={`${index}`}
               >
                 {array.map(
                   (
