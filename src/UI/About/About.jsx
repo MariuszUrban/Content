@@ -59,9 +59,11 @@ const About = () => {
   if (isShown === "functionality") {
     paragraph = (
       <div className="functionality-wrapper">
-        Prototype version of the app provides to user several basic
-        functionalities:
-        <br /> <br />
+        <p>
+          Prototype version of the app provides to user several basic
+          functionalities:
+        </p>
+
         <ul className="desc functionality-list">
           <li>Setting up user account</li>
           <li>
@@ -136,7 +138,7 @@ const About = () => {
                 setIsShown("updates");
               }}
             >
-              Planned updates
+              Updates
             </li>
           </ul>
         </div>
