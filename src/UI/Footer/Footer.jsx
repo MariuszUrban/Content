@@ -28,7 +28,7 @@ const Footer = () => {
           />
         </div>
       ) : (
-        <>
+        <div className="open-footer">
           <div className="about-author">
             Designed and developed with <Icon icon="heart" /> by Mariusz Urban
           </div>
@@ -58,7 +58,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </section>
   );
