@@ -15,10 +15,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mobile {
+    padding: 15px;
+    flex-direction: column;
+  }
 }
 
 .about-categories-list {
   width: 20%;
+  @include mobile {
+    height: 15%;
+    width: 100%;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      li {
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 .about-categories-desc {
@@ -26,6 +43,12 @@
   height: 60%;
   padding: 40px;
   padding-top: 55px;
+  @include mobile {
+    height: 85%;
+    padding: 0;
+    overflow: scroll;
+    @include scrollbars(0.5rem, $dark-grey-blue, $background);
+  }
 }
 
 .desc {
@@ -36,6 +59,10 @@
   color: $dark-grey-blue;
   opacity: 80%;
   text-align: justify;
+  @include mobile {
+    padding-right: 20px;
+    width: 100%;
+  }
 }
 
 .resources-wrapper {
@@ -44,6 +71,9 @@
   position: relative;
   height: 100%;
   @include scrollbars(0.5rem, $dark-grey-blue, $background);
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .resources {
@@ -78,6 +108,17 @@
   align-items: center;
 }
 
+.functionality-wrapper {
+  p {
+    color: $dark-grey-blue;
+    height: 10%;
+    padding-bottom: 10px;
+  }
+  @include mobile {
+    height: fit-content;
+  }
+}
+
 .updates-wrapper {
   overflow: scroll;
   width: 100%;
@@ -87,12 +128,19 @@
 }
 .updates {
   height: 100%;
+  @include mobile {
+    width: 100%;
+    padding: 0;
+  }
 }
 .functionality-list,
 .updates-list {
   list-style: disc;
   padding-left: 55px;
   width: fit-content;
+  @include mobile {
+    padding-left: 25px;
+  }
 }
 
 .updates-list {
