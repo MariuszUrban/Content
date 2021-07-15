@@ -14,10 +14,24 @@
   a:focus {
     text-decoration: none;
   }
+  @include mobile {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .logo-image {
   padding: 15px;
+  @include mobile {
+    padding: 5px;
+  }
+  img {
+    @include mobile {
+      width: 35px;
+    }
+  }
 }
 
 .logo-name {
@@ -27,6 +41,11 @@
   letter-spacing: 2px;
   color: $dark-grey-blue;
   border: none;
+  @include mobile {
+    h1 {
+      @include font-size($text-big);
+    }
+  }
 }
 
 .logo-name:hover {

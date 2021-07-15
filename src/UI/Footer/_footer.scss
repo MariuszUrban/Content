@@ -5,6 +5,11 @@
   width: 100%;
   height: fit-content;
   padding: 50px;
+  @include mobile {
+    padding: 25px;
+    display: block;
+    height: 20vh;
+  }
 }
 
 .about-author {
@@ -12,6 +17,10 @@
   color: $dark-grey-blue;
   letter-spacing: 3px;
   padding: 15px;
+  @include mobile {
+    @include font-size(0.5);
+    text-align: center;
+  }
 }
 
 .social-buttons {
@@ -21,15 +30,30 @@
 
 .details-buttons {
   display: flex;
+  justify-content: space-around;
 }
 
 .icon-wrapper {
+  display: flex;
   padding: 15px;
   opacity: 60%;
-  transition: 0.5s ease-in;
   color: #204361;
+  justify-content: flex-end;
+  @include mobile {
+    i {
+      height: 20px !important;
+      font-size: 20px !important;
+    }
+  }
 }
 
 .icon-wrapper:hover {
   opacity: 100%;
+}
+
+.open-footer {
+  @include mobile {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
