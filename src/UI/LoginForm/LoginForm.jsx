@@ -13,7 +13,7 @@ import { GitHubLoginButton } from "../GitHubLoginButton/GitHubLoginButton";
 import { FacebookLoginButton } from "../FacebookLoginButton/FacebookLoginButton";
 import "./_loginForm.scss";
 
-const { StringType, NumberType } = Schema.Types;
+const { StringType } = Schema.Types;
 
 const model = Schema.Model({
   name: StringType().isRequired("This field is required."),
@@ -70,7 +70,7 @@ function CheckForm() {
 
 function SocialForm() {
   return (
-    <Form>
+    <Form className='login-btns-container'>
       <FacebookLoginButton text="Login" />
       <GoogleLoginButton text="Login" />
       <GitHubLoginButton text="Login" />

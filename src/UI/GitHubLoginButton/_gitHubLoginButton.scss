@@ -21,6 +21,14 @@
   button {
     color: $dark-grey-blue;
   }
+  @include mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    height: 31px;
+  }
 }
 
 .github-login-button-container:hover {
@@ -37,10 +45,17 @@
   margin-right: 10px;
   padding: 10px;
   height: 43px;
+  @include mobile {
+    padding: 0;
+    height: fit-content;
+  }
 }
 
 .rs-icon-github {
   font-size: 24px;
+  @include mobile {
+    font-size: 24px !important;
+  }
 }
 
 .enter-with-github {
@@ -48,4 +63,8 @@
   padding: 10px 10px 10px 0;
   background-color: transparent !important;
   transition: ease-in-out 0.6s;
+  @include mobile {
+    padding: 0;
+    font-size: 0.75rem;
+  }
 }
