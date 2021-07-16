@@ -6,6 +6,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @include mobile {
+    padding-top: 20px;
+  }
 }
 
 .inputs-container,
@@ -15,12 +18,27 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @include mobile {
+    font-size: 0.75rem;
+  }
 }
 .register-input-container {
   padding-bottom: 25px;
+  @include mobile {
+    padding-bottom: 10px;
+  }
 }
 .register-input-label {
   font-family: $logo-font;
+}
+
+.register-input-wrapp {
+  @include mobile {
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
 }
 
 .enter-with-social-buttons {

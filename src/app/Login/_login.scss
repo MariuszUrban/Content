@@ -13,7 +13,7 @@
   transition: ease-in-out 1.3s;
   @include mobile {
     width: fit-content;
-    height: fit-content;
+    height: 100%;
   }
 }
 
