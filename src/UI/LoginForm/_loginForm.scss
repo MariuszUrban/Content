@@ -10,6 +10,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.enter-greeting-wrapper {
+  @include mobile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 30px;
+  }
 }
 
 .enter-with-social-buttons {
@@ -19,4 +33,32 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.login-btns-container {
+  @include mobile {
+    padding-bottom: 20px;
+  }
+}
+
+.facebook-login-button-wrapper {
+  @include mobile {
+    padding-bottom: 10px;
+    span {
+      align-items: center;
+      width: 150px;
+      height: 30px;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.enter-with-facebook {
+  @include mobile {
+    height: 20px;
+    font-size: 0.75rem;
+    i {
+      font-size: 0.75rem;
+    }
+  }
 }
