@@ -43,7 +43,7 @@ const SurveyProfile = () => {
   };
 
   return (
-    <div className="survey-container">
+    <div className="survey-container survey-container-second-wrapper">
       <div className="survey-header">
         <SurveyHeader text="Create profile" />
       </div>

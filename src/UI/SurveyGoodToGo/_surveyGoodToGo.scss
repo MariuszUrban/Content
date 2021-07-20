@@ -6,6 +6,9 @@
   color: $dark-grey-blue;
   display: flex;
   justify-content: center;
+  @include mobile {
+    font-size: 2rem;
+  }
 }
 
 .all-set {

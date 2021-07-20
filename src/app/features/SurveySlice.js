@@ -28,6 +28,7 @@ export const surveySlice = createSlice({
       "#3d93c9",
       "#f4ec29",
       "#e53c3c",
+      "#fff",
     ],
     chosenColors: [],
     artworks: [

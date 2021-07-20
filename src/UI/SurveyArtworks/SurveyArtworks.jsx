@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import SurveyHeader from "../SurveyHeader/SurveyHeader";
 import ButtonMain from "../ButtonMain/ButtonMain";
-import { Row, Col } from "rsuite";
+import { Row } from "rsuite";
 import { useSelector, useDispatch } from "react-redux";
 import {
   profileSelector,
@@ -16,8 +16,9 @@ import "./_surveyArtworks.scss";
 const SurveyArtworks = () => {
   const state = useSelector(profileSelector);
   const { artworks, chosenArtworks } = state;
+
   const dispatch = useDispatch();
-  const chunked = useMemo(() => chunk(getRandom(artworks, 12), 3), []);
+  const chunked = useMemo(() => chunk(getRandom(artworks, 12), 4), []);
 
   const handleSubmitArtwork = (e) => {
     if (chosenArtworks.includes(e.target.innerHTML)) {
@@ -28,7 +29,7 @@ const SurveyArtworks = () => {
   };
 
   const goBack = () => {
-    dispatch(setSection("artworks-profile"));
+    dispatch(setSection("colors-profile"));
   };
 
   const goNext = () => {
@@ -36,14 +37,14 @@ const SurveyArtworks = () => {
   };
 
   return (
-    <div className="survey-container">
+    <div className="survey-container survey-container-second-wrapper">
       <div className="survey-header">
         <SurveyHeader
           text="If you would be an artwork, you would be:"
           className="survey-artworks"
         />
       </div>
-      <div className="survey-content artworks-btns">
+      <div className="survey-content artworks-btns ">
         {chunked.map((arr, idx) => (
           <Row classPrefix="survey-artworks-row">
             {arr.map((el) => (

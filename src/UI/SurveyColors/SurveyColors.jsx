@@ -17,7 +17,7 @@ export const SurveyColors = () => {
   const dispatch = useDispatch();
 
   const goBack = () => {
-    dispatch(setSection("colors-profile"));
+    dispatch(setSection("create-profile"));
   };
 
   const goNext = () => {
@@ -33,15 +33,13 @@ export const SurveyColors = () => {
   };
 
   return (
-    <div className="survey-container">
+    <div className="survey-container survey-container-second-wrapper">
       <div className="survey-header">
-        <SurveyHeader text="Choose your fav colors" className="artworks" />
+        <SurveyHeader text="Choose your fave colors" className="artworks" />
       </div>
-      <div className="survey-content">
+      <div className="survey-content survey-btns-mobile">
         {colors.map((color) => {
-          return (
-            <SurveyColorsButton color={color} onClick={chooseColor}  />
-          );
+          return <SurveyColorsButton color={color} onClick={chooseColor} />;
         })}
       </div>
       <div className="survey-footer">

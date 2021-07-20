@@ -1,5 +1,12 @@
 @import "../../App.scss";
 
+.survey-artworks {
+  @include mobile {
+    font-size: 1.75rem;
+    line-height: 25px;
+    padding-bottom: 20px;
+  }
+}
 .survey-artworks-row {
   width: 25%;
   display: flex;
@@ -7,11 +14,27 @@
   align-items: center;
   flex-direction: column;
   height: 100%;
+  @include mobile {
+    width: 33%;
+  }
 }
 
 .survey-artworks-btn {
   button {
     width: fit-content;
+  }
+  @include mobile {
+    height: 25%;
+    span {
+      font-size: 0.5rem;
+      padding: 0;
+    }
+  }
+}
+
+.artworks-btns {
+  @include mobile {
+    width: 100%;
   }
 }
 
