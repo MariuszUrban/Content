@@ -7,6 +7,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @include mobile {
+    width: 100%;
+    padding: 30px;
+  }
 }
 
 .survey-form-profile {

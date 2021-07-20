@@ -6,6 +6,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  @include mobile {
+    height: 15%;
+  }
 }
 
 .survey-header-title {
@@ -14,6 +17,10 @@
   font-size: 5rem;
   font-family: $logo-font;
   color: $dark-grey-blue;
+  @include mobile {
+    font-size: 2.5rem;
+    padding: 0;
+  }
 }
 
 .survey-artworks {
@@ -27,6 +34,10 @@
   justify-content: flex-end;
   align-items: center;
   padding-right: 25px;
+  @include mobile {
+    height: 70%;
+    padding: 0;
+  }
 }
 
 .survey-desc {
@@ -34,6 +45,9 @@
   color: $dark-grey-blue;
   font-size: 3rem;
   text-align: end;
+  @include mobile {
+    font-size: 1.2rem;
+  }
 }
 
 .survey-footer {
@@ -41,6 +55,9 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  @include mobile {
+    height: 15%;
+  }
 }
 
 .survey-button-wrapper {
@@ -50,6 +67,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 25px 0 25px;
+  @include mobile {
+    padding: 0;
+  }
 }
 .skip-btn {
   opacity: 40%;

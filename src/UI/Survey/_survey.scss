@@ -5,3 +5,9 @@
   height: 100%;
   padding: 25px;
 }
+
+.survey-container-second-wrapper {
+  @include mobile {
+    padding: 0;
+  }
+}

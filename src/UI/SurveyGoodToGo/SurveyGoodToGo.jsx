@@ -2,12 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SurveyHeader from "../SurveyHeader/SurveyHeader";
 import ButtonMain from "../ButtonMain/ButtonMain";
-import { setSection } from "../../app/features/SurveySlice";
 import "./_surveyGoodToGo.scss";
 
 export const SurveyGoodToGo = () => {
   return (
-    <div className="survey-container">
+    <div className="survey-container  survey-container-second-wrapper">
       <div className="survey-header">
         <SurveyHeader />
       </div>

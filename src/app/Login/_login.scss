@@ -12,7 +12,7 @@
   align-items: center;
   transition: ease-in-out 1.3s;
   @include mobile {
-    width: fit-content;
+    width: 80%;
     height: 100%;
   }
 }

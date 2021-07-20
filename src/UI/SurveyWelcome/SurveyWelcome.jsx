@@ -13,7 +13,7 @@ const SurveyWelcome = () => {
   };
 
   return (
-    <div className="survey-container">
+    <div className="survey-container survey-container-second-wrapper">
       <div className="survey-header">
         <SurveyHeader text="Welcome !" />
       </div>

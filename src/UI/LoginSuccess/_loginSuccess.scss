@@ -31,6 +31,13 @@
   color: $dark-grey-blue;
   text-align: center;
   padding-bottom: 45px;
+  @include mobile {
+    padding: 0 20px 20px 20px;
+    h1 {
+      font-size: 1.5rem;
+      line-height: 20px;
+    }
+  }
 }
 
 .success-button-wrapper {
