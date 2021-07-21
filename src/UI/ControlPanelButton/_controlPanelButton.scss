@@ -3,6 +3,9 @@
 .control-panel-btn-container {
   width: 72px;
   padding-bottom: 10px;
+  @include mobile {
+    width: 36px;
+  }
 }
 
 .control-panel-btn {
@@ -10,6 +13,9 @@
   background: transparent;
   color: $dark-grey-blue;
   transition: ease-in-out 1.2s;
+  @include mobile {
+    height: 36px;
+  }
   .control-panel-text-wrapper {
     font-family: $logo-font;
     font-size: $text-small;
