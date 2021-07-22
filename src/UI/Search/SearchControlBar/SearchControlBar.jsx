@@ -10,9 +10,9 @@ const SearchControlBar = () => {
 
   const handleActiveClass = (name) => {
     if (isActive === name) {
-      return "search-control-bar-btn active";
+      return `search-control-bar-btn active`;
     } else {
-      return '"search-control-bar-btn"';
+      return `search-control-bar-btn`;
     }
   };
 

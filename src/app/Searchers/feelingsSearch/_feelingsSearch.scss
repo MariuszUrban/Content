@@ -53,6 +53,11 @@
 
 .rs-flex-box-grid-item {
   width: 100%;
+  @include mobile {
+    label {
+      font-size: 0.65rem;
+    }
+  }
 }
 
 .feeling-search-btns {

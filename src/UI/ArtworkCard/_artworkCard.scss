@@ -7,6 +7,9 @@
   justify-content: space-evenly;
   align-items: center;
   padding-bottom: 20px;
+  @include mobile {
+    display: inline;
+  }
 }
 
 .flex-box-grid-item-result {
@@ -16,4 +19,8 @@
   border: 0.5px solid $dark-grey-blue;
   border-radius: 15px;
   box-shadow: 1px 16px 19px -8px rgb(32, 67, 97, 0.6);
+  @include mobile {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
