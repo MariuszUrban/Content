@@ -65,6 +65,7 @@ const ControlPanel = () => {
                 value="control-activity"
                 text="Activity"
                 icon={<Icon icon="dashboard" size="2x" />}
+                onClick={handleOpenClose}
               />
             </Link>
           </li>
@@ -74,6 +75,7 @@ const ControlPanel = () => {
                 value="control-fav"
                 text="Favorites"
                 icon={<Icon icon="heart-o" size="2x" />}
+                onClick={handleOpenClose}
               />
             </Link>
           </li>
@@ -83,6 +85,7 @@ const ControlPanel = () => {
                 value="control-list"
                 text="Lists"
                 icon={<Icon icon="list" size="2x" />}
+                onClick={handleOpenClose}
               />
             </Link>
           </li>
@@ -92,6 +95,7 @@ const ControlPanel = () => {
                 value="control-notes"
                 text="Notes"
                 icon={<Icon icon="sticky-note-o" size="2x" />}
+                onClick={handleOpenClose}
               />
             </Link>
           </li>
@@ -101,6 +105,7 @@ const ControlPanel = () => {
                 value="control-upload"
                 text="Upload"
                 icon={<Icon icon="cloud-upload" size="2x" />}
+                onClick={handleOpenClose}
               />
             </Link>
           </li>
@@ -110,6 +115,7 @@ const ControlPanel = () => {
                 value="control-3d"
                 text="AR View"
                 icon={<Icon icon="cubes" size="2x" />}
+                onClick={handleOpenClose}
               />
             </Link>
           </li>

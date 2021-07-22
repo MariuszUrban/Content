@@ -30,6 +30,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  @include mobile {
+    margin-top: 10px;
+  }
 }
 
 .back-to-search-btn {

@@ -55,13 +55,33 @@ export const ArtworkModal = ({
                 <Content>
                   <ButtonGroup className="modal-control-btns">
                     <IconButton
-                      icon={<Icon icon="heart-o" />}
+                      icon={
+                        <Icon icon="heart-o" className="modal-control-icon" />
+                      }
                       circle
                       size="md"
+                      className="modal-control-btn"
                     />
-                    <IconButton icon={<Icon icon="list" />} circle size="md" />
-                    <IconButton icon={<Icon icon="edit" />} circle size="md" />
-                    <IconButton icon={<Icon icon="share" />} circle size="md" />
+                    <IconButton
+                      icon={<Icon icon="list" className="modal-control-icon" />}
+                      circle
+                      size="md"
+                      className="modal-control-btn"
+                    />
+                    <IconButton
+                      icon={<Icon icon="edit" className="modal-control-icon" />}
+                      circle
+                      size="md"
+                      className="modal-control-btn"
+                    />
+                    <IconButton
+                      icon={
+                        <Icon icon="share" className="modal-control-icon" />
+                      }
+                      circle
+                      size="md"
+                      className="modal-control-btn"
+                    />
                   </ButtonGroup>
                 </Content>
                 <Content>Content</Content>
