@@ -1,5 +1,6 @@
 import React from "react";
 import NoteEditor from "./NoteEditor/NoteEditor";
+import NotesList from "./NotesList/NotesList";
 import "./_notes.scss";
 
 const Notes = () => {
@@ -8,7 +9,9 @@ const Notes = () => {
       <div className="note-edit-wrapper">
         <NoteEditor />
       </div>
-      <div className="note-list-wrapper"></div>
+      <div className="note-list-wrapper">
+        <NotesList />
+      </div>
     </div>
   );
 };
