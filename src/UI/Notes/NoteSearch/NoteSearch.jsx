@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-import './_noteSearch.scss'
+import "./_noteSearch.scss";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     width: "100%",
-    height: "100%",
+    height: "58px",
     borderRadius: "15px",
     boxShadow: " none",
     border: "1px solid #204361",
