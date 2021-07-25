@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import ClearAllIcon from "@material-ui/icons/ClearAll";
+import ClearIcon from "@material-ui/icons/Clear";
 import SaveIcon from "@material-ui/icons/Save";
 import { makeStyles } from "@material-ui/core/styles";
 import TitleTextField from "./TitleTextField";
@@ -18,12 +18,15 @@ const useStyles = makeStyles((theme) => ({
     "& span": {
       color: "#204361",
     },
+    "& input": {
+      padding: "14px",
+      height: "30px",
+    },
   },
 }));
 
 const NoteEditor = () => {
   const classes = useStyles();
-  console.log("🚀 ~ NoteEditor ~ classes", classes);
 
   return (
     <div className="note-editor-container">
@@ -47,8 +50,8 @@ const NoteEditor = () => {
           aria-label="large outlined primary button group"
         >
           <div className={classes.root}>
-            <Button className="note-editor-btn" startIcon={<ClearAllIcon />}>
-              Clear
+            <Button className="note-editor-btn" startIcon={<ClearIcon />}>
+              Discard
             </Button>
             <Button className="note-editor-btn" startIcon={<SaveIcon />}>
               Save

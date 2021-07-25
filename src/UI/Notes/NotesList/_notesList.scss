@@ -14,8 +14,11 @@
 }
 
 .notes-list {
+  width: 107%;
+  padding-right: 10px;
   height: 100%;
   overflow: scroll;
+  @include scrollbars(0.5rem, $dark-grey-blue, $background !important);
 }
 
 .notes-list-item {
