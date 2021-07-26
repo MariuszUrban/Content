@@ -7,6 +7,7 @@ import tryItOutSlice from "./TrItOut/TryItOutSlice";
 import SignInSlice from "./SignIn/SignInSlice";
 import SurveySlice from "./features/SurveySlice";
 import ControlPanelSlice from "./features/ControlPanelSlice";
+import NotesSlice from "./features/NotesSlice";
 
 export default configureStore({
   reducer: {
@@ -18,5 +19,6 @@ export default configureStore({
     user: SignInSlice,
     survey: SurveySlice,
     controlPanel: ControlPanelSlice,
+    notes: NotesSlice,
   },
 });
