@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NoteSearch = () => {
+const NoteSearch = ({ value, handleSearchNote }) => {
   const classes = useStyles();
 
   return (
@@ -38,6 +38,10 @@ const NoteSearch = () => {
           className={classes.input}
           placeholder="Search "
           inputProps={{ "aria-label": "search google maps" }}
+          onChange={(e) => {
+            handleSearchNote(e.target.value);
+          }}
+          value={value}
         />
         <IconButton
           type="submit"
