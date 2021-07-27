@@ -36,6 +36,7 @@ const NoteEditor = () => {
   const [noteText, setNoteText] = useState("");
   const dispatch = useDispatch();
   const state = useSelector(noteSelector);
+
   const handleTitleChange = (e) => {
     setNoteTitle(e.target.value);
   };
@@ -61,7 +62,7 @@ const NoteEditor = () => {
           text: noteText,
           date: date.format(now, "YYYY/MM/DD"),
           time: date.format(now, "hh:mm:ss"),
-          id: nanoid(),
+          note_id: nanoid(),
         })
       );
     }

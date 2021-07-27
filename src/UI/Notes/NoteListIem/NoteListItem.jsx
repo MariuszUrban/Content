@@ -21,14 +21,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NoteListItem = ({ title, text, id, date }) => {
+const NoteListItem = ({ title, text, id, date, image }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const state = useSelector(noteSelector);
 
   const handleDeleteNote = () => {
-    const newNotes = state.notes.filter((note) => note.id !== id);
-    console.log("🚀 ~ handleDeleteNote ~ newNotes", newNotes);
+    const newNotes = state.notes.filter((note) => note.note_id !== id);
 
     dispatch(deleteNote(newNotes));
   };
@@ -47,7 +46,7 @@ const NoteListItem = ({ title, text, id, date }) => {
         <div
           className="note-photo"
           style={{
-            backgroundImage: `url(${"https://www.artic.edu/iiif/2/6a2d2716-2d5d-2ef9-88c5-39a30f769cad/full/600,/0/default.jpg"})`,
+            backgroundImage: `url(${image})`,
           }}
         ></div>
         <p className="note-note">{text}</p>

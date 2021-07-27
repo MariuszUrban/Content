@@ -28,6 +28,7 @@ export default function ResultCard({
         title={title}
         toggleOpenClose={toggleOpenClose}
       />
+
       <ArtworkModal
         isModalOpen={isModalOpen}
         toggleOpenClose={toggleOpenClose}
@@ -36,6 +37,7 @@ export default function ResultCard({
         dimensions={dimensions}
         medium={medium}
         image={image}
+        id={id}
       />
     </>
   );

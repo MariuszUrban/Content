@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import TextSearch from "../../app/Searchers/textSearch/TextSearch";
-import StyleSearch from "../../app/Searchers//styleSearch/StyleSearch";
-import FeelingsSearch from "../../app/Searchers/feelingsSearch/FeelingsSearch";
+import TextSearch from "../../../app/Searchers/textSearch/TextSearch";
+import StyleSearch from "../../../app/Searchers/styleSearch/StyleSearch";
+import FeelingsSearch from "../../../app/Searchers/feelingsSearch/FeelingsSearch";
 import "./_section.scss";
 
 const Section = ({ setPending }) => {

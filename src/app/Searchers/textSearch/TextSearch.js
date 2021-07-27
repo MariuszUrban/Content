@@ -62,7 +62,7 @@ export default function ArtworkSearch({ setPending }) {
   };
 
   return (
-    <Form classPrefix="rs-form search-by-keyword-form" onSubmit={handleSubmit}>
+    <Form classPrefix="rs-form search-by-keyword-form">
       <FormGroup classPrefix="rs-form-group searchy-by-keyword-input-wrapper">
         <CustomInputGroupWidthButton
           size="lg"
