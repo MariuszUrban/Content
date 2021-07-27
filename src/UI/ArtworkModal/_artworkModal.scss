@@ -13,6 +13,7 @@
   height: 100%;
   width: 100%;
   padding: 20px;
+  margin: 0;
   border: solid white 1px;
   border-radius: 20px;
   background-color: rgb(32, 67, 97);
@@ -23,6 +24,11 @@
 
 .modal-content-container {
   height: 100%;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .modal-icon-wrapper {
@@ -91,6 +97,8 @@
 
 .about-art-work {
   color: #fff;
+  padding-bottom: 30px;
+  height: auto;
   @include mobile {
     padding-bottom: 20px;
   }
@@ -124,7 +132,7 @@
 .modal-control-btns {
   display: flex;
   justify-content: space-around;
-  height: 10%;
+  height: fit-content;
   @include mobile {
     height: 100%;
   }

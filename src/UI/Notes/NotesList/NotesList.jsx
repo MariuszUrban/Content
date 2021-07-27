@@ -9,14 +9,14 @@ const NotesList = ({ notes }) => {
       <div className="notes-list-wrapper">
         {notes.length > 0 ? (
           <ul className="notes-list">
-            {notes.map(({ date, id, text, title }) => (
-              <li className="notes-list-item" key={id}>
+            {notes.map(({ date, note_id, text, title, image }) => (
+              <li className="notes-list-item" key={note_id}>
                 <NoteListItem
                   title={title}
                   text={text}
                   date={date}
-                  image
-                  id={id}
+                  image={image}
+                  id={note_id}
                 />
               </li>
             ))}

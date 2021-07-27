@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { getRandom } from "../helpers/Random";
+import { useParams } from "react-router-dom";
 import ResultCard from "../../UI/ResultCard/ResultCard.jsx";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,6 +15,8 @@ const Results = () => {
   const state = useSelector(selectState);
   const { results, ready } = state;
   const { path } = useRouteMatch();
+  let params = useParams();
+
   const areReady = Object.keys(ready).every((key) => ready[key]);
   const dispatch = useDispatch();
   const [availableArtworks, setAvailableArtworks] = useState("");
@@ -34,7 +37,6 @@ const Results = () => {
   }, [availableArtworks]);
 
   const fetchMoreData = () => {
-    console.log("SIEMANO");
     let newLoad = getRandom(artworksLeftToRender, 24);
     let diff = _.difference(artworksLeftToRender, newLoad);
     setArtworksToRender(artworksToRender.concat(newLoad));
@@ -63,7 +65,7 @@ const Results = () => {
             dataLength={artworksToRender.length}
             next={fetchMoreData}
             hasMore={true}
-            loader={<h4 className='infinite-loader'>Loading...</h4>}
+            loader={<h4 className="infinite-loader">Loading...</h4>}
             scrollableTarget="scrollableDiv"
           >
             {_.chunk(artworksToRender, 4).map((array, index) => (
@@ -88,6 +90,7 @@ const Results = () => {
                         image={image}
                         description={description}
                         medium={medium}
+                        id={id}
                       />
                     </FlexboxGrid.Item>
                   )

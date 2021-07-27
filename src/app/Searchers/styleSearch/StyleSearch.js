@@ -3,7 +3,7 @@ import { ButtonGroup, Button, TagPicker } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { saveStylesToArray, selectState } from "./StyleSearchSlice";
 import { createArrayForKeyword } from "../../Results/ResultsSlice";
-
+import { Link, useRouteMatch } from "react-router-dom";
 import {
   fetchRijksmuseum,
   fetchMET,
@@ -12,11 +12,12 @@ import {
 } from "../../Museums/index";
 import { styles } from "./utils/Styles";
 import "./_styleSearch.scss";
+
 const StyleSearch = ({ setPending }) => {
   const state = useSelector(selectState);
   const dispatch = useDispatch();
   const { selected_styles } = state;
-
+  let { url } = useRouteMatch();
   const handleChange = (e) => {
     dispatch(saveStylesToArray(e));
   };
@@ -57,7 +58,6 @@ const StyleSearch = ({ setPending }) => {
       <TagPicker
         creatable
         data={styles}
-        // classPrefix="picker"
         menuStyle={{ width: 300 }}
         groupBy="role"
         placeholder="Select Style"
@@ -80,13 +80,15 @@ const StyleSearch = ({ setPending }) => {
         }}
       />
       <ButtonGroup>
-        <Button
-          classPrefix="btn-ready"
-          onClick={handleSearch}
-          disabled={checkedCount <= 0}
-        >
-          Search
-        </Button>
+        <Link to={`${url}/results`}>
+          <Button
+            classPrefix="btn-ready"
+            onClick={handleSearch}
+            disabled={checkedCount <= 0}
+          >
+            Search
+          </Button>
+        </Link>
       </ButtonGroup>
     </section>
   );

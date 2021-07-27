@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  setSection,
   toggleOpenClose,
   controlPanelSelector,
 } from "../../app/features/ControlPanelSlice";
@@ -50,9 +49,9 @@ const ControlPanel = () => {
 
         <ul>
           <li>
-            <Link to={`${url}/control-search`}>
+            <Link to={`${url}/search`}>
               <ControlPanelButton
-                value="control-search"
+                value="search"
                 text="Search"
                 icon={<Icon icon="search" size="2x" />}
                 onClick={handleOpenClose}
@@ -60,9 +59,9 @@ const ControlPanel = () => {
             </Link>
           </li>
           <li>
-            <Link to={`${url}/control-activity`}>
+            <Link to={`${url}/activity`}>
               <ControlPanelButton
-                value="control-activity"
+                value="activity"
                 text="Activity"
                 icon={<Icon icon="dashboard" size="2x" />}
                 onClick={handleOpenClose}
@@ -70,9 +69,9 @@ const ControlPanel = () => {
             </Link>
           </li>
           <li>
-            <Link to={`${url}/control-fav`}>
+            <Link to={`${url}/fav`}>
               <ControlPanelButton
-                value="control-fav"
+                value="fav"
                 text="Favorites"
                 icon={<Icon icon="heart-o" size="2x" />}
                 onClick={handleOpenClose}
@@ -80,9 +79,9 @@ const ControlPanel = () => {
             </Link>
           </li>
           <li>
-            <Link to={`${url}/control-lists`}>
+            <Link to={`${url}/lists`}>
               <ControlPanelButton
-                value="control-list"
+                value="lists"
                 text="Lists"
                 icon={<Icon icon="list" size="2x" />}
                 onClick={handleOpenClose}
@@ -90,9 +89,9 @@ const ControlPanel = () => {
             </Link>
           </li>
           <li>
-            <Link to={`${url}/control-notes`}>
+            <Link to={`${url}/notes`}>
               <ControlPanelButton
-                value="control-notes"
+                value="notes"
                 text="Notes"
                 icon={<Icon icon="sticky-note-o" size="2x" />}
                 onClick={handleOpenClose}
@@ -100,9 +99,9 @@ const ControlPanel = () => {
             </Link>
           </li>
           <li>
-            <Link to={`${url}/control-upload`}>
+            <Link to={`${url}/upload`}>
               <ControlPanelButton
-                value="control-upload"
+                value="upload"
                 text="Upload"
                 icon={<Icon icon="cloud-upload" size="2x" />}
                 onClick={handleOpenClose}
@@ -110,10 +109,10 @@ const ControlPanel = () => {
             </Link>
           </li>
           <li>
-            <Link to={`${url}/control-3d`}>
+            <Link to={`${url}/3d`}>
               <ControlPanelButton
-                value="control-3d"
-                text="AR View"
+                value="3d"
+                text="VR View"
                 icon={<Icon icon="cubes" size="2x" />}
                 onClick={handleOpenClose}
               />

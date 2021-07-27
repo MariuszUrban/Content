@@ -1,0 +1,20 @@
+@import "../../../App.scss";
+
+.artwork-modal-functions-container {
+  height: fit-content;
+}
+
+.artwork-modal-functions-btns {
+  height: 40px;
+  margin-bottom: 40px;
+}
+
+.artwork-modal-functions-modules {
+  height: fit-content;
+}
+
+.artwork-modal-control-btns {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 40px;
+}

@@ -23,15 +23,15 @@ const Dashboard = () => {
         <Switch>
           <Route
             exact
-            path={`${path}/control-activity`}
+            path={`${path}/activity`}
             children={<RecentActivity />}
           />
-          <Route path={`${path}/control-search`} children={<Search />} />
-          <Route path={`${path}/control-fav`} children={<Favorites />} />
-          <Route path={`${path}/control-lists`} children={<Lists />} />
-          <Route path={`${path}/control-notes`} children={<Notes />} />
-          <Route path={`${path}/control-upload`} children={<Upload />} />
-          <Route path={`${path}/control-3d`} children={<ThreeDView />} />
+          <Route path={`${path}/search`} children={<Search />} />
+          <Route path={`${path}/fav`} children={<Favorites />} />
+          <Route path={`${path}/lists`} children={<Lists />} />
+          <Route path={`${path}/notes`} children={<Notes />} />
+          <Route path={`${path}/upload`} children={<Upload />} />
+          <Route path={`${path}/3d`} children={<ThreeDView />} />
         </Switch>
       </div>
     </div>

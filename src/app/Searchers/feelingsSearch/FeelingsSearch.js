@@ -1,5 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useRouteMatch } from "react-router-dom";
+
 import {
   saveFeelingsToArray,
   removeFeelingsFromArray,
@@ -10,13 +12,7 @@ import {
   selectState,
 } from "./FeelingsSearchSlice";
 import { createArrayForKeyword } from "../../Results/ResultsSlice";
-import {
-  FlexboxGrid,
-  Checkbox,
-  CheckboxGroup,
-  Button,
-  ButtonGroup,
-} from "rsuite";
+import { FlexboxGrid, Checkbox, CheckboxGroup, Button } from "rsuite";
 import { getRandom } from "../../helpers/Random";
 import { chunk } from "../../helpers/Chunk";
 import { colors } from "./utils/Colors";
@@ -45,13 +41,14 @@ const checkboxGroup = random.map((element) => {
 
 const chunked = chunk(checkboxGroup, 4);
 
-export const FeelingsSearch = () => {
+export const FeelingsSearch = ({ setPending }) => {
   const state = useSelector(selectState);
   const { selected_feelings, checked_items } = state;
   const checkedValues = { ...checked_items };
   const checkedCount = Object.values(checkedValues).filter(
     (value) => value
   ).length;
+  let { url } = useRouteMatch();
 
   const dispatch = useDispatch();
 
@@ -72,6 +69,7 @@ export const FeelingsSearch = () => {
 
   const handleClick = () => {
     if (selected_feelings.length !== 0 && selected_feelings.length <= 5) {
+      setPending();
       selected_feelings.forEach((word) => {
         dispatch(createArrayForKeyword(word));
         dispatch(fetchArtInstituteChicago(word));
@@ -127,13 +125,16 @@ export const FeelingsSearch = () => {
         </FlexboxGrid>
       </div>
       <div className="feeling-search-btns">
-        <Button
-          classPrefix="btn-ready"
-          onClick={handleClick}
-          disabled={checkedCount <= 0}
-        >
-          Check for artworks
-        </Button>
+        <Link to={`${url}/results`}>
+          <Button
+            classPrefix="btn-ready"
+            onClick={handleClick}
+            disabled={checkedCount <= 0}
+          >
+            Check for artworks
+          </Button>
+        </Link>
+
         <Button
           classPrefix="clear"
           onClick={handleClear}

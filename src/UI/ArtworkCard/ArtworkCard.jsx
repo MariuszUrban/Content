@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import "./_artworkCard.scss";
 import { AddToFavorites } from "../AddToFavorites/AddToFavorites";
 import { Share } from "../Share/Share";
+import { Link, useRouteMatch } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -56,42 +57,49 @@ const useStyles = makeStyles({
   },
 });
 
-export const ArtworkCard = ({ image, artist, title, toggleOpenClose }) => {
+export const ArtworkCard = ({ image, artist, title, toggleOpenClose, id }) => {
   const classes = useStyles();
+  let { url } = useRouteMatch();
 
   return (
-    <Card className={classes.root} variant="outlined" onClick={toggleOpenClose}>
-      <CardActionArea className={classes.content}>
-        <CardMedia className={classes.media} image={image} title={title} />
-        <CardContent className={classes.info}>
-          <Typography
-            className={classes.title}
-            gutterBottom
-            variant="body1"
-            component="p"
-            maxLength="20"
-          >
-            {title}
-          </Typography>
-          <Typography
-            className={classes.description}
-            variant="body2"
-            component="p"
-            maxLength="20"
-          >
-            {artist}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions className={classes.actionButtons}>
-        <Button fontSize="small" color="primary">
-          <AddToFavorites size="small" color="rgb(150 150 148)" />
-        </Button>
-        <Button size="small" color="primary">
-          <Share size="small" color="rgb(150 150 148)" />
-        </Button>
-      </CardActions>
-    </Card>
+    <Link to={`${url}/${id}`}>
+      <Card
+        className={classes.root}
+        variant="outlined"
+        onClick={toggleOpenClose}
+      >
+        <CardActionArea className={classes.content}>
+          <CardMedia className={classes.media} image={image} title={title} />
+          <CardContent className={classes.info}>
+            <Typography
+              className={classes.title}
+              gutterBottom
+              variant="body1"
+              component="p"
+              maxLength="20"
+            >
+              {title}
+            </Typography>
+            <Typography
+              className={classes.description}
+              variant="body2"
+              component="p"
+              maxLength="20"
+            >
+              {artist}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions className={classes.actionButtons}>
+          <Button fontSize="small" color="primary">
+            <AddToFavorites size="small" color="rgb(150 150 148)" />
+          </Button>
+          <Button size="small" color="primary">
+            <Share size="small" color="rgb(150 150 148)" />
+          </Button>
+        </CardActions>
+      </Card>
+    </Link>
   );
 };
 

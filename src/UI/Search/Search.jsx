@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { selectState as resultsState } from "../../app/Results/ResultsSlice";
 import { useSelector } from "react-redux";
 import Loader from "react-loader-spinner";
 import Results from "../../app/Results/Results";
 import SearchControlBar from "./SearchControlBar/SearchControlBar";
-import Section from "../Section/Section";
+import SearchSection from "./SearchSection/SearchSection";
 
 import "./_search.scss";
 
 const Search = () => {
-  let { path  } = useRouteMatch();
+  let { path } = useRouteMatch();
 
   const [isPending, setIsPending] = useState(false);
   const [areReady, setReady] = useState(false);
@@ -44,7 +44,7 @@ const Search = () => {
             />
             <Route
               path={`${path}/:topicId`}
-              children={<Section setPending={handlePending} />}
+              children={<SearchSection setPending={handlePending} />}
             />
           </Switch>
         </div>
@@ -69,7 +69,11 @@ const Search = () => {
   if (isPending && areReady) {
     setIsPending(false);
   } else if (!isPending && areReady) {
-    section = <Results />;
+    section = (
+      <Switch>
+        <Route path={`${path}/:topicId/results`} children={<Results />} />
+      </Switch>
+    );
   }
   return <div className="section-container">{section}</div>;
 };

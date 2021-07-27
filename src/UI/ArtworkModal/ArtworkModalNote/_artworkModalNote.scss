@@ -1,0 +1,12 @@
+@import "../../../App.scss";
+
+.artwork-modal-note-container {
+  height: 320px;
+  form {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}

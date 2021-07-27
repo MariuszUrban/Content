@@ -1,19 +1,9 @@
 import React from "react";
-import {
-  Modal,
-  Container,
-  Content,
-  Footer,
-  ButtonGroup,
-  IconButton,
-  Icon,
-  Col,
-  Row,
-  Grid,
-} from "rsuite";
+import { Link, useRouteMatch } from "react-router-dom";
+import { Modal, Container, Content, Col, Row, Grid, Icon } from "rsuite";
 import Typography from "@material-ui/core/Typography";
-
 import "./_artworkModal.scss";
+import ArtworkModalFunctions from "./ArtworkModalFunctions/ArtworkModalFunctions";
 
 export const ArtworkModal = ({
   isModalOpen,
@@ -23,13 +13,17 @@ export const ArtworkModal = ({
   artist,
   medium,
   dimensions,
+  id,
 }) => {
+  let { url } = useRouteMatch();
+
   return (
     <Modal full show={isModalOpen} onHide={toggleOpenClose}>
       <div className="modal-icon-wrapper">
-        <Icon icon="close" size="x6" onClick={toggleOpenClose} />
+        <Link to={`${url}`}>
+          <Icon icon="close" size="x6" onClick={toggleOpenClose} />
+        </Link>
       </div>
-
       <Grid fluid>
         <Row classPrefix="full-artwork">
           <Col xsHidden xs={18} className="left-side">
@@ -52,45 +46,17 @@ export const ArtworkModal = ({
                     {dimensions}
                   </Typography>
                 </Content>
-                <Content>
-                  <ButtonGroup className="modal-control-btns">
-                    <IconButton
-                      icon={
-                        <Icon icon="heart-o" className="modal-control-icon" />
-                      }
-                      circle
-                      size="md"
-                      className="modal-control-btn"
-                    />
-                    <IconButton
-                      icon={<Icon icon="list" className="modal-control-icon" />}
-                      circle
-                      size="md"
-                      className="modal-control-btn"
-                    />
-                    <IconButton
-                      icon={<Icon icon="edit" className="modal-control-icon" />}
-                      circle
-                      size="md"
-                      className="modal-control-btn"
-                    />
-                    <IconButton
-                      icon={
-                        <Icon icon="share" className="modal-control-icon" />
-                      }
-                      circle
-                      size="md"
-                      className="modal-control-btn"
-                    />
-                  </ButtonGroup>
-                </Content>
-                <Content>Content</Content>
+                <ArtworkModalFunctions
+                  id={id}
+                  image={image}
+                  title={title}
+                  artist={artist}
+                />
               </Container>
             </Modal.Body>
           </Col>
         </Row>
       </Grid>
-
       <Modal.Footer></Modal.Footer>
     </Modal>
   );

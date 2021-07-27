@@ -10,6 +10,7 @@ export const notesSlice = createSlice({
       state.notes = payload;
     },
     saveNote: (state, { payload }) => {
+      console.log("🚀 ~ payload", payload);
       state.notes.unshift(payload);
     },
     deleteNote: (state, { payload }) => {
