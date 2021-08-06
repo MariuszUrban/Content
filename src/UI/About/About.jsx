@@ -82,17 +82,16 @@ const About = () => {
       <div className="updates-wrapper">
         <p className="desc updates">
           <div className="desc updates-list">
-            Features I'm working on now and to be added soon:
-            <br />
-            Server setup
-            <br /> Computer Vision image scan
-            <br />
-            VR view of selected artworks
-            <br />
-            File upload
-            <br />
-            ...and hopefully some extra
-            <br /> <Icon icon="angellist" size="2x" />
+            <p>Features I'm working on now and to be added soon:</p>
+            <ul className="desc functionality-list">
+              <li>Server setup</li>
+              <li>Computer Vision image scan</li>
+              <li>VR view of selected artworks</li>
+              <li>File upload</li>
+              <li> ...and hopefully some extra</li>
+            </ul>
+
+            <Icon icon="angellist" size="2x" />
           </div>
         </p>
       </div>
@@ -106,7 +105,7 @@ const About = () => {
           <ul>
             <li
               value
-              className="list-element"
+              className="list-element-category"
               onClick={() => {
                 setIsShown("idea");
               }}
@@ -115,7 +114,7 @@ const About = () => {
             </li>
             <li
               value
-              className="list-element"
+              className="list-element-category"
               onClick={() => {
                 setIsShown("resources");
               }}
@@ -124,7 +123,7 @@ const About = () => {
             </li>
             <li
               value
-              className="list-element"
+              className="list-element-category"
               onClick={() => {
                 setIsShown("functionality");
               }}
@@ -133,7 +132,7 @@ const About = () => {
             </li>
             <li
               value
-              className="list-element"
+              className="list-element-category"
               onClick={() => {
                 setIsShown("updates");
               }}
